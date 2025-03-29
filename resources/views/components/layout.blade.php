@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior:smooth; scroll-padding-top:80px">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/SkillUp-Favicon.png')}}">
     <title>SkillUp</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -14,11 +15,24 @@
     <header class="fixed w-full z-50">
     <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-            <a href="{{route('home')}}" class="flex items-center">
+            <a href="{{route('home_page')}}" class="flex items-center">
                 <img src="{{asset('assets/SkillUp.png')}}" class="h-6 mr-3 sm:h-9" alt="Logo"/>
             </a>
             <div class="flex items-center lg:order-2">
-                <a href="{{route('login')}}" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
+                                
+                <form class="flex items-center max-w-sm mx-auto mr-4">   
+                    <div class="relative w-full">
+                        <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required />
+                    </div>
+                    <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                        <span class="sr-only">Search</span>
+                    </button>
+                </form>
+
+                <a href="{{route('login_page')}}" class="text-gray-800 bg-blue-600 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
 
                 <a href="{{route('register_student')}}" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">Register</a>
                 
@@ -33,16 +47,16 @@
             <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
-                        <a href="{{route('home')}}" class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
+                        <a href="{{route('home_page')}}" class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#aboutUs" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
+                        <a href="/#aboutUs" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
                     </li>
                     <li>
-                        <a href="#courses" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Courses</a>
+                        <a href="{{route('course_page')}}" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Courses</a>
                     </li>
                     <li>
-                        <a href="#testimonies" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Testimonies</a>
+                        <a href="/#testimonies" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Testimonies</a>
                     </li>
                 </ul>
             </div>
@@ -54,21 +68,21 @@
 
     <footer class="bg-white dark:bg-gray-800">
         <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
-            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-3 text-center">
                 <div>
-                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h3>
+                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Navigasi</h3>
                     <ul class="text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class=" hover:underline">About</a>
+                            <a href="#" class=" hover:underline">Courses</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Careers</a>
+                            <a href="#" class="hover:underline">Experts</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Brand Center</a>
+                            <a href="#" class="hover:underline">About Us</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Blog</a>
+                            <a href="#" class="hover:underline">FaQ</a>
                         </li>
                     </ul>
                 </div>
@@ -76,16 +90,16 @@
                     <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h3>
                     <ul class="text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Discord Server</a>
+                            <a href="#" class="hover:underline">Email</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Twitter</a>
+                            <a href="#" class="hover:underline">Whatsapp</a>
                         </li>
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Facebook
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Contact Us</a>
+                            <a href="#" class="hover:underline">Instagram</a>
                         </li>
                     </ul>
                 </div>
@@ -103,47 +117,14 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h3>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class=" hover:underline">About</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Careers</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Brand Center</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Blog</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h3>
-                    <ul class="text-gray-500 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">iOS</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Android</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Windows</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">MacOS</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
             <div class="text-center">
                 <a href="#" class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white">
                     <img src="{{asset('assets/SkillUp.png')}}" class="h-6 mr-3 sm:h-9" alt="SkillUp Logo"/>
                 </a>
-                <span class="block text-sm text-center text-gray-500 dark:text-gray-400">© 2021-2022 Landwind™. All Rights Reserved. Built with <a href="https://flowbite.com" class="text-purple-600 hover:underline dark:text-purple-500">Flowbite</a> and <a href="https://tailwindcss.com" class="text-purple-600 hover:underline dark:text-purple-500">Tailwind CSS</a>. Distributed by <a href="https://themewagon.com/" class="text-purple-600 hover:underline dark:text-purple-500">ThemeWagon</a>
+                <span class="block text-sm text-center text-gray-500 dark:text-gray-400">©2025 SkillUp™. All Rights Reserved. Built with <a href="https://flowbite.com" class="text-purple-600 hover:underline dark:text-purple-500">Flowbite</a> and <a href="https://tailwindcss.com" class="text-purple-600 hover:underline dark:text-purple-500">Tailwind CSS</a>
                 </span>
                 <ul class="flex justify-center mt-5 space-x-5">
                     <li>

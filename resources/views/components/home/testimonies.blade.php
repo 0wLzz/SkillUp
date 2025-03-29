@@ -1,6 +1,6 @@
 <!-- Testimonies -->
 <section id="testimonies" class="bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
+    <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-16 lg:px-6">
         <!-- Row -->
         <div class="flex justify-center">
             <h1 class="font-extrabold text-5xl text-white">

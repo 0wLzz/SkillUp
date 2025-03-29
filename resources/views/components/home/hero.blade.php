@@ -4,7 +4,7 @@
             <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Learn Real World Skill <br>with <span class="dark:text-blue-500">SkillUp!</span></h1>
 
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad iusto perferendis modi eveniet eos, enim iure dicta rerum eligendi nobis distinctio accusantium neque tempora deserunt. Architecto, fugiat quis. Perferendis, incidunt?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad iusto perferendis modi eveniet eos, enim iure dicta rerum eligendi nobis distinctio accusantium neque tempora deserunt. Architecto, fugiat quis. Perferendis, incidunt? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi numquam quia iusto eos deleniti, accusamus vitae porro minima doloremque qui magni fugit eveniet optio voluptatibus error provident possimus consequatur praesentium?
             </p>
         </div>
 
@@ -17,7 +17,7 @@
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                     <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{asset('assets/Carousel1.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        <img src="{{asset('assets/Carousel1.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="apa">
                     </div>
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>

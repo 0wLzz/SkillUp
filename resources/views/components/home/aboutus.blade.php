@@ -2,7 +2,7 @@
 <section id="aboutUs" class="bg-white dark:bg-gray-900">
     <div class="max-w-screen-xl px-4 pb-8 mx-auto">
         <div class="grid grid-cols-2 gap-8 text-gray-500 dark:text-gray-400">
-            <img class="row-span-2" src="{{asset('assets/Carousel2.jpg')}}">
+            <img class="row-span-2" src="{{asset('assets/AboutUs.png')}}">
 
             <h1 class="max-w-2xl text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
                 <span class="underline underline-offset-8">About</span>  
