@@ -16,5 +16,8 @@
         "postcss": "^8.5.3",
         "tailwindcss": "^4.0.12",
         "vite": "^6.0.11"
+    },
+    "dependencies": {
+        "pagedone": "^1.2.2"
     }
 }

@@ -1,44 +1,69 @@
-<!-- Testimonies -->
-<section id="testimonies" class="bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-16 lg:px-6">
-        <!-- Row -->
-        <div class="flex justify-center">
-            <h1 class="font-extrabold text-5xl text-white">
-                Apa yang
-                <span class="text-blue-600 underline underline-offset-4">CLient</span> 
-                Katakan!
-            </h1>
-        </div>
+<!-- Testimonies Section -->
+<section id="testimonies" class="bg-gray-50 dark:bg-gray-800 px-6 py-12 flex flex-col items-center">
+    <!-- Title -->
+    <h1 class="font-bold text-5xl text-white">
+        Apa yang
+        <span class="text-blue-600 underline underline-offset-4">Client</span> 
+        Katakan!
+    </h1>
 
-        <div class="grid mb-8 border border-gray-200 rounded-lg shadow-xs dark:border-gray-700 md:mb-12 md:grid-cols-2 bg-white dark:bg-gray-800">
-            <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
-                <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Very easy this was to integrate</h3>
-                    <p class="my-4">If you care for your time, I hands down would go with this."</p>
-                </blockquote>
-                <figcaption class="flex items-center justify-center ">
-                    <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture">
-                    <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                        <div>Bonnie Green</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400 ">Developer at Open AI</div>
+    <!-- Testimony Wrapper (Centering Applied) -->
+    <div class="flex items-center gap-8 mt-8 w-full max-w-screen-xl justify-center">
+        <!-- Prev Button -->
+        <button id="prev-testimony" type="button" class="max-h-10 px-4 py-2 rounded-full bg-gray-900 hover:bg-gray-400">
+            <svg class="w-4 h-4 text-white dark:text-gray-400 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+        </button>
+    
+        <div id="testimonyWrapper" class="flex items-center shrink-0 gap-4 w-full max-w-264 overflow-hidden">
+            <!-- Testimonials -->
+            <div class="testimonial text-white bg-gray-700 rounded-xl p-8 min-w-lg max-w-lg h-full">
+                <div class="flex items-center gap-8">
+                    <div class="flex flex-col items-center font-bold w-1/3">
+                        <img src="{{asset('assets/AboutUs.png')}}" class="w-60 aspect-square object-cover rounded-lg">
+                        <h3>Cecily Villarreal</h3>
+                        <h3>Mahasiswa CS</h3>
                     </div>
-                </figcaption>    
-            </figure>
-            <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
-                <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Solid foundation for any project</h3>
-                    <p class="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
-                </blockquote>
-                <figcaption class="flex items-center justify-center ">
-                    <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture">
-                    <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                        <div>Roberta Casas</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div>
+                    <p class="text-lg w-2/3 flex-grow">
+                        Saya berkesempatan bekerja dengan Client dalam sebuah proyek untuk kebutuhan saya, dan saya sangat puas dengan hasilnya. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="testimonial text-white bg-gray-700 rounded-xl p-8 min-w-lg max-w-lg h-full">
+                <div class="flex items-center gap-8">
+                    <div class="flex flex-col items-center font-bold w-1/3">
+                        <img src="{{asset('assets/AboutUs.png')}}" class="w-60 aspect-square object-cover rounded-lg">
+                        <h3>Alex Johnson</h3>
+                        <h3>Mahasiswa IT</h3>
                     </div>
-                </figcaption>    
-            </figure>
-        </div>
-
+                    <p class="text-lg w-2/3 flex-grow">
+                        Hasil kerja mereka luar biasa! Sangat merekomendasikan kepada siapa pun yang butuh jasa profesional. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="testimonial text-white bg-gray-700 rounded-xl p-8 min-w-lg max-w-lg h-full">
+                <div class="flex items-center gap-8">
+                    <div class="flex flex-col items-center font-bold w-1/3">
+                        <img src="{{asset('assets/AboutUs.png')}}" class="w-60 aspect-square object-cover rounded-lg">
+                        <h3>Alex Johnson</h3>
+                        <h3>Mahasiswa IT</h3>
+                    </div>
+                    <p class="text-lg w-2/3 flex-grow">
+                        Hasil kerja mereka luar biasa! Sangat merekomendasikan kepada siapa pun yang butuh jasa profesional. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+        </div>        
+    
+        <!-- Next Button -->
+        <button id="next-testimony" type="button" class="max-h-10 px-4 py-2 rounded-full bg-gray-900 hover:bg-gray-400 order-3">
+            <svg class="w-4 h-4 text-white dark:text-gray-400 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+        </button>
     </div>
 </section>
 <!-- End block -->
