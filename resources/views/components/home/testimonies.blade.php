@@ -2,45 +2,48 @@
     <!-- Title -->
     <h1 class="font-bold text-5xl text-white mb-8">
         Apa yang
-        <span class="text-blue-600 underline underline-offset-4">Client</span> 
+        <span class="text-blue-600 underline underline-offset-4">Client</span>
         Katakan!
     </h1>
 
-    <div class="swiper"> 
+    <div class="swiper">
         <div class="swiper-wrapper max-w-[72rem] mb-16">
             <div class="swiper-slide text-white bg-gray-700 rounded-xl p-8 max-w-xl">
                 <div class="flex items-center gap-8">
                     <div class="flex flex-col items-center font-bold">
-                        <img src="{{asset('assets/AboutUs.png')}}" class="w-60 aspect-square object-cover rounded-lg">
+                        <img src="{{ asset('assets/AboutUs.png') }}" class="w-60 aspect-square object-cover rounded-lg">
                         <h3>Alex Johnson</h3>
                         <h3>Mahasiswa IT</h3>
                     </div>
                     <p class="text-lg">
-                        Hasil kerja mereka luar biasa! Sangat merekomendasikan kepada siapa pun yang butuh jasa profesional. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Hasil kerja mereka luar biasa! Sangat merekomendasikan kepada siapa pun yang butuh jasa
+                        profesional. Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </p>
                 </div>
             </div>
             <div class="swiper-slide text-white bg-gray-700 rounded-xl p-8 max-w-xl">
                 <div class="flex items-center gap-8">
                     <div class="flex flex-col items-center font-bold">
-                        <img src="{{asset('assets/AboutUs.png')}}" class="w-60 aspect-square object-cover rounded-lg">
+                        <img src="{{ asset('assets/AboutUs.png') }}" class="w-60 aspect-square object-cover rounded-lg">
                         <h3>Alex Johnson</h3>
                         <h3>Mahasiswa IT</h3>
                     </div>
                     <p class="text-lg">
-                        Hasil kerja mereka luar biasa! Sangat merekomendasikan kepada siapa pun yang butuh jasa profesional. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Hasil kerja mereka luar biasa! Sangat merekomendasikan kepada siapa pun yang butuh jasa
+                        profesional. Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </p>
                 </div>
             </div>
             <div class="swiper-slide text-white bg-gray-700 rounded-xl p-8 max-w-xl">
                 <div class="flex items-center gap-8">
                     <div class="flex flex-col items-center font-bold">
-                        <img src="{{asset('assets/AboutUs.png')}}" class="w-60 aspect-square object-cover rounded-lg">
+                        <img src="{{ asset('assets/AboutUs.png') }}" class="w-60 aspect-square object-cover rounded-lg">
                         <h3>Alex Johnson</h3>
                         <h3>Mahasiswa IT</h3>
                     </div>
                     <p class="text-lg">
-                        Hasil kerja mereka luar biasa! Sangat merekomendasikan kepada siapa pun yang butuh jasa profesional. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Hasil kerja mereka luar biasa! Sangat merekomendasikan kepada siapa pun yang butuh jasa
+                        profesional. Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </p>
                 </div>
             </div>
@@ -64,7 +67,7 @@
 
             pagination: {
                 el: '.swiper-pagination',
-                clickable: true, 
+                clickable: true,
             },
 
             navigation: {
