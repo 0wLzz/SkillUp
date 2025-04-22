@@ -1,7 +1,7 @@
-{{-- <x-layout>
+<x-layout>
     <section class="bg-white dark:bg-gray-900">
-        <div class="flex flex-col items-center justify-center px-6 py-8 md:h-screen mx-auto lg:py-0">
-            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+        <div class="flex flex-col items-center justify-center px-6 py-8 h-screen mx-auto lg:py-0">
+            <a href="#" class="items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                 <img src="{{ asset('assets/SkillUp.png') }}" alt="logo">
             </a>
             <div class="relative z-10 w-full bg-white rounded-lg shadow dark:border sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -11,28 +11,32 @@
                     </h1>
 
                     <div class="grid grid-cols-3 text-white text-lg underline text-center">
-                        <a href="{{route('register_student')}}">Student</a>
+                        <a href="{{route('register_student')}}" class="text-blue-400">Student</a>
                         <span>|</span>
-                        <a href="{{route('register_tutor')}}" class="text-blue-400">Tutor</a>
+                        <a href="{{route('register_tutor')}}">Tutor</a>
                     </div>
+
 
                     <form class="space-y-4 md:space-y-6" action="#" method="POST">
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                             <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required>
                         </div>
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required>
-                        </div>
-                        <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Telepon</label>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                             <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div>
+
                         <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Portofolio</label>
-                            <input type="file" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div>
+
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password Confirmation</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        </div>
+
                         <div class="flex items-center justify-between">
                             <div class="flex items-start">
                                 <div class="flex items-center h-5">
@@ -51,41 +55,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
-</x-layout> --}}
-
-<x-layout>
-    <section class="...">
-        <div class="...">
-            <h1>Register as Tutor</h1>
-            <div class="...">
-                <a href="{{ route('register_student') }}">Student</a> |
-                <a href="{{ route('register_tutor') }}" class="text-blue-400">Tutor</a>
-            </div>
-
-            @if(session('success'))
-                <div class="bg-green-100 text-green-800 px-4 py-2 rounded">{{ session('success') }}</div>
-            @endif
-
-            @if($errors->any())
-                <ul class="text-red-500 list-disc ml-4">
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
-
-            <form action="{{ route('register_tutor.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="text" name="name" placeholder="Nama" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="text" name="phone" placeholder="Nomor Telepon" required>
-                <input type="file" name="portfolio" required>
-
-                <button type="submit">Sign Up</button>
-                <p>Sudah punya akun? <a href="{{ route('login_page') }}">Login</a></p>
-            </form>
         </div>
     </section>
 </x-layout>

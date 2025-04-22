@@ -54,38 +54,3 @@
         </div>
     </section>
 </x-layout> --}}
-
-<x-layout>
-    <section class="...">
-        <div class="...">
-            <h1>Register as Tutor</h1>
-            <div class="...">
-                <a href="{{ route('register_student') }}">Student</a> |
-                <a href="{{ route('register_tutor') }}" class="text-blue-400">Tutor</a>
-            </div>
-
-            @if(session('success'))
-                <div class="bg-green-100 text-green-800 px-4 py-2 rounded">{{ session('success') }}</div>
-            @endif
-
-            @if($errors->any())
-                <ul class="text-red-500 list-disc ml-4">
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
-
-            <form action="{{ route('register_tutor.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="text" name="name" placeholder="Nama" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="text" name="phone" placeholder="Nomor Telepon" required>
-                <input type="file" name="portfolio" required>
-
-                <button type="submit">Sign Up</button>
-                <p>Sudah punya akun? <a href="{{ route('login_page') }}">Login</a></p>
-            </form>
-        </div>
-    </section>
-</x-layout>
