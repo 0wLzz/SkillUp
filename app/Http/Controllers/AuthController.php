@@ -9,6 +9,7 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    // Halaman register student
     public function registerStudent()
     {
         return view('auth.register-student');
