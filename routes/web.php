@@ -1,28 +1,16 @@
 <?php
 
-// use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CourseController;
 
-// Route::view('/', 'index')->name('home_page');
-// Route::view('/login', 'auth.login')->name('login_page');
-// Route::view('/register/student', 'auth.register-student')->name('register_student');
-// Route::view('/register/tutor', 'auth.register-tutor')->name('register_tutor');
-// Route::view('/courses', 'courses')->name('course_page');
-// Route::view('/courses/detail', 'courses.detail')->name('course_detail'); -->
 
+// admin
 Route::view('/admin', 'admin.dashboard')->name('admin_page');
-Route::view('/admin/courses', 'admin.courses')->name('manage_courses_page');
+//Route::view('/admin/courses', 'admin.courses')->name('manage_courses_page');
 Route::view('/admin/tutors', 'admin.tutors')->name('manage_tutors_page');
 Route::view('/admin/subscription', 'admin.subscription')->name('manage_subscription_page');
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
-
-
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 
 // Public Pages
 Route::view('/', 'index')->name('home_page');
@@ -40,3 +28,7 @@ Route::get('/register/tutor', [AuthController::class, 'registerTutor'])->name('r
 Route::post('/register/tutor', [AuthController::class, 'storeTutor'])->name('register_tutor.store');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+Route::resource('/admin/courses', CourseController::class);

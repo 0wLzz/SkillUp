@@ -9,14 +9,17 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function registerStudent() {
+    public function registerStudent()
+    {
         return view('auth.register-student');
     }
 
-    public function storeStudent(Request $request) {
+    // Simpan data student
+    public function storeStudent(Request $request)
+    {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
         ]);
 
@@ -30,42 +33,53 @@ class AuthController extends Controller
         return redirect()->route('login_page')->with('success', 'Pendaftaran student berhasil!');
     }
 
-    public function registerTutor() {
+    // Halaman register tutor
+    public function registerTutor()
+    {
         return view('auth.register-tutor');
     }
 
-    public function storeTutor(Request $request) {
+    // Simpan data tutor
+    public function storeTutor(Request $request)
+    {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:users,email',
             'phone' => 'required',
             'portfolio' => 'required|file'
         ]);
 
-        // kamu bisa simpan file portofolio nanti
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make('default123'), // atau password generator
+            'password' => Hash::make('default123'), // default password
             'role' => 'tutor'
         ]);
 
         return redirect()->route('login_page')->with('success', 'Pendaftaran tutor berhasil!');
     }
 
-    public function loginPage() {
+    // Halaman login
+    public function loginPage()
+    {
         return view('auth.login');
     }
 
-    public function login(Request $request) {
+    // Proses login
+    public function login(Request $request)
+    {
         $credentials = $request->only('email', 'password');
+
         if (Auth::attempt($credentials)) {
             return redirect()->route('home_page');
         }
+
         return back()->withErrors(['email' => 'Email atau password salah']);
     }
 
-    public function logout() {
+    // Proses logout
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('login_page');
     }
