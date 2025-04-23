@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\Admin\TutorRequestController;
 
 
 // admin
@@ -32,3 +33,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::resource('/admin/courses', CourseController::class);
+
+// untuk request tutor
+Route::get('/admin/tutors/requests', [TutorRequestController::class, 'index'])->name('tutor_requests.index');
+Route::put('/admin/tutors/requests/{id}/approve', [TutorRequestController::class, 'approve'])->name('tutor_requests.approve');
+Route::put('/admin/tutors/requests/{id}/reject', [TutorRequestController::class, 'reject'])->name('tutor_requests.reject');
+

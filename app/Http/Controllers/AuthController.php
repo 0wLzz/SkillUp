@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\TutorRequest;
+use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
@@ -50,14 +52,27 @@ class AuthController extends Controller
             'portfolio' => 'required|file'
         ]);
 
-        User::create([
+        / Simpan file portofolio ke storage
+    $portfolioPath = $request->file('portfolio')->store('portfolios', 'public');
+
+        /* User::create([;
+            'name' => $request->name,;
+            'email' => $request->email,;
+            'password' => Hash::make('default123'), // default password;
+            'role' => 'tutor';
+        ]); */
+
+        TutorRequest::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make('default123'), // default password
-            'role' => 'tutor'
+            'phone' => $request->phone,
+            'portfolio_path' => $portfolioPath,
+            'status' => 'pending'
         ]);
 
-        return redirect()->route('login_page')->with('success', 'Pendaftaran tutor berhasil!');
+        //return redirect()->route('login_page')->with('success', 'Pendaftaran tutor berhasil!');
+        
+        return redirect()->route('login_page')->with('success', 'Pendaftaran tutor berhasil dikirim! Tunggu konfirmasi dari admin.');
     }
 
     // Halaman login
