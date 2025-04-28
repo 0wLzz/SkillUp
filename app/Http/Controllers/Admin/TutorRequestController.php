@@ -5,18 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\TutorRequest; // ← ✅ Tambahkan ini
+use App\Models\TutorRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TutorStatusMail;
-
-
+use App\Models\Tutor;
+use Illuminate\Support\Facades\Hash;
 
 class TutorRequestController extends Controller
 {
     public function index()
     {
-        $tutors = User::where('role', 'tutor')->whereNull('approved_at')->get();
-        return view('admin.tutor_requests.index', compact('tutors'));
+        $requests = TutorRequest::all();
+        return view('admin.requests', compact('requests'));
     }
 
     public function viewPortfolio($id)
@@ -27,27 +27,36 @@ class TutorRequestController extends Controller
 
     public function approve($id)
     {
-        $tutor = TutorRequest::findOrFail($id);
+        $request = TutorRequest::findOrFail($id);
 
         // logika approve tutor
-        $tutor->status = 'approved';
-        $tutor->save();
-    
+        $request->status = 'approved';
+        $request->save();
+        $password = explode(' ', trim($request->name));
+
         // kirim email ke tutor
-        Mail::to($tutor->email)->send(new TutorStatusMail('approved', $tutor->name));
-    
+        Mail::to($request->email)->send(new TutorStatusMail('approved', $request->name, ($password[0] . '123'), $request->email));
+
+
+        Tutor::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $password[0] . '123'
+        ]);
+
+
         return redirect()->back()->with('success', 'Tutor berhasil di-approve dan email dikirim.');
     }
 
     public function reject($id)
     {
-        $tutor = TutorRequest::findOrFail($id);
+        $request = TutorRequest::findOrFail($id);
 
-        $tutor->status = 'rejected';
-        $tutor->save();
-    
-        Mail::to($tutor->email)->send(new TutorStatusMail('rejected', $tutor->name));
-    
+        $request->status = 'rejected';
+        $request->save();
+
+        Mail::to($request->email)->send(new TutorStatusMail('rejected', $request->name));
+
         return redirect()->back()->with('success', 'Tutor ditolak dan email pemberitahuan dikirim.');
     }
 }

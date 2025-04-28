@@ -52,8 +52,8 @@ class AuthController extends Controller
             'portfolio' => 'required|file'
         ]);
 
-        / Simpan file portofolio ke storage
-    $portfolioPath = $request->file('portfolio')->store('portfolios', 'public');
+        // Simpan file portofolio ke storage
+        $portfolioPath = $request->file('portfolio')->store('portfolios', 'public');
 
         /* User::create([;
             'name' => $request->name,;
@@ -71,7 +71,7 @@ class AuthController extends Controller
         ]);
 
         //return redirect()->route('login_page')->with('success', 'Pendaftaran tutor berhasil!');
-        
+
         return redirect()->route('login_page')->with('success', 'Pendaftaran tutor berhasil dikirim! Tunggu konfirmasi dari admin.');
     }
 

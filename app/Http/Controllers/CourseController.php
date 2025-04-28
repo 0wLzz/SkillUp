@@ -27,7 +27,7 @@ class CourseController extends Controller
             'title' => 'required|string',
             'subtitle' => 'nullable|string',
             'teacher' => 'nullable|string',
-          
+
             'thumbnail' => 'nullable|image|mimes:jpg,png,jpeg|max:20480',
         ]);
 
@@ -40,7 +40,7 @@ class CourseController extends Controller
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'teacher' => $request->teacher,
-            
+
             'thumbnail' => $path,
         ]);
 
@@ -60,10 +60,10 @@ class CourseController extends Controller
             'title' => 'required|string',
             'subtitle' => 'nullable|string',
             'teacher' => 'nullable|string',
-            
+
             'thumbnail' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
-        
+
         $data = $request->only('title', 'subtitle', 'teacher', 'students', 'videos');
 
         if ($request->hasFile('thumbnail')) {
