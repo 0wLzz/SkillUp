@@ -21,6 +21,7 @@ Route::put('/admin/tutors/requests/{id}/reject', [TutorRequestController::class,
 Route::view('/', 'index')->name('home_page');
 Route::view('/courses', 'courses')->name('course_page');
 Route::view('/courses/detail', 'courses.detail')->name('course_detail');
+Route::view('/courses/payment', 'courses.payment')->name('course_payment');
 
 
 // Auth Pages & Actions

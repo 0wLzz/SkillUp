@@ -45,7 +45,7 @@
                     <a href="{{ route('courses.edit', $course->id) }}"
                         class="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2 rounded">Edit</a>
 
-                    <form action="{{ route('courses.destroy', $course->id) }}" method="POST")">
+                    <form action="{{ route('courses.destroy', $course->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 rounded">

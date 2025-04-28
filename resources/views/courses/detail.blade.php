@@ -56,10 +56,10 @@
                     </div>
                     <div class="border-t-2 p-8">
                         <p class="text-white">Rp. 500.000</p>
-                        <button type="submit"
-                            class="p-2.5 w-full text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="{{ route('course_payment') }}"
+                            class="p-2.5 w-full text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 block">
                             <span>DAFTAR KELAS</span>
-                        </button>
+                        </a>
                     </div>
                     {{-- End Card --}}
                 </div>
