@@ -7,6 +7,9 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Admin\TutorRequestController;
 use App\Http\Controllers\TutorController;
 
+// Tutor
+Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
+
 // Admin
 Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');
 Route::get('/admin/subscription', [AdminController::class, 'subscription'])->name('manage_subscription_page');
@@ -14,7 +17,7 @@ Route::get('/admin/tutors', [AdminController::class, 'tutor'])->name('manage_tut
 Route::delete('/admin/tutors/delete/{id}', [AdminController::class, 'delete_tutor'])->name('delete_tutor');
 Route::resource('/admin/courses', CourseController::class);
 
-// untuk request tutor
+// Request tutor
 Route::get('/admin/tutors/requests', [TutorRequestController::class, 'index'])->name('tutor_requests.index');
 Route::put('/admin/tutors/requests/{id}/approve', [TutorRequestController::class, 'approve'])->name('tutor_requests.approve');
 Route::put('/admin/tutors/requests/{id}/reject', [TutorRequestController::class, 'reject'])->name('tutor_requests.reject');
