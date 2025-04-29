@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
@@ -7,9 +8,10 @@ use App\Http\Controllers\Admin\TutorRequestController;
 use App\Http\Controllers\TutorController;
 
 // Admin
-Route::view('/admin', 'admin.dashboard')->name('admin_page');
-Route::view('/admin/tutors', 'admin.tutors')->name('manage_tutors_page');
-Route::view('/admin/subscription', 'admin.subscription')->name('manage_subscription_page');
+Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');
+Route::get('/admin/subscription', [AdminController::class, 'subscription'])->name('manage_subscription_page');
+Route::get('/admin/tutors', [AdminController::class, 'tutor'])->name('manage_tutors_page');
+Route::delete('/admin/tutors/delete/{id}', [AdminController::class, 'delete_tutor'])->name('delete_tutor');
 Route::resource('/admin/courses', CourseController::class);
 
 // untuk request tutor
@@ -22,7 +24,6 @@ Route::view('/', 'index')->name('home_page');
 Route::view('/courses', 'courses')->name('course_page');
 Route::view('/courses/detail', 'courses.detail')->name('course_detail');
 Route::view('/courses/payment', 'courses.payment')->name('course_payment');
-
 
 // Auth Pages & Actions
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login_page');

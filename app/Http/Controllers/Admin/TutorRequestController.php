@@ -15,7 +15,7 @@ class TutorRequestController extends Controller
 {
     public function index()
     {
-        $requests = TutorRequest::all();
+        $requests = TutorRequest::where('status', 'pending')->get();
         return view('admin.requests', compact('requests'));
     }
 
@@ -37,13 +37,11 @@ class TutorRequestController extends Controller
         // kirim email ke tutor
         Mail::to($request->email)->send(new TutorStatusMail('approved', $request->name, ($password[0] . '123'), $request->email));
 
-
         Tutor::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $password[0] . '123'
         ]);
-
 
         return redirect()->back()->with('success', 'Tutor berhasil di-approve dan email dikirim.');
     }

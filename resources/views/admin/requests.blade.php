@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        @foreach ($requests as $request)
+        @forelse ($requests as $request)
             <div class="grid grid-cols-6 rounded p-4 space-y-2 w-full text-wrap">
                 <p>
                     <strong>Nama:</strong><br>
@@ -60,6 +60,8 @@
                     </form>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <p class="text-center text-gray-500">Belum ada permintaan.</p>
+        @endforelse
     </div>
 </x-admin_layout>
