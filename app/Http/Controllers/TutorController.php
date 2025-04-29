@@ -11,4 +11,9 @@ class TutorController extends Controller
     {
         return view('tutor.index');
     }
+
+    public function edit()
+    {
+        return view('tutor.edit');
+    }
 }

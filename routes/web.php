@@ -9,6 +9,7 @@ use App\Http\Controllers\TutorController;
 
 // Tutor
 Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
+Route::get('/tutor/edit/', [TutorController::class, 'edit'])->name('tutor_edit');
 
 // Admin
 Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');
