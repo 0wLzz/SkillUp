@@ -1,6 +1,6 @@
-<section class="bg-white dark:bg-gray-900">
-    <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-        <div class="mr-auto place-self  -center lg:col-span-7">
+<section id="hero" class="bg-gray-900">
+    <div class="grid max-w-screen-xl p-6 mx-auto grid-cols-12">
+        <div class="mr-auto place-self-center col-span-7">
             <h1
                 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
                 Learn Real World Skill <br>with <span class="dark:text-blue-500">SkillUp!</span></h1>
@@ -15,23 +15,18 @@
         </div>
 
         {{-- Hero Images --}}
-        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-
-
-            <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <div class="mt-0 col-span-5 flex">
+            <div id="default-carousel" class="relative w-full h-96 overflow-hidden rounded-lg" data-carousel="slide">
                 <!-- Carousel wrapper -->
-                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                <div class="relative w-full h-full">
                     <!-- Item 1 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/Carousel1.jpeg') }}"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="apa">
+                    <div class="duration-700 ease-in-out" data-carousel-item="active">
+                        <img src="{{ asset('assets/Carousel2.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
                     </div>
+
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/Carousel2.jpg') }}"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="...">
+                        <img src="{{ asset('assets/Carousel2.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
                     </div>
                 </div>
 
@@ -57,6 +52,7 @@
                         <span class="sr-only">Previous</span>
                     </span>
                 </button>
+
                 <button type="button"
                     class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     data-carousel-next>
@@ -71,7 +67,6 @@
                     </span>
                 </button>
             </div>
-
 
         </div>
     </div>

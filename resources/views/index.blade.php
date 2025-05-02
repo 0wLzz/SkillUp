@@ -1,16 +1,20 @@
 <x-layout>
-    {{-- Hero Component --}}
-    <x-home.hero />
+    <div class="max-h-screen-xl">
+        {{-- Hero Component --}}
+        <x-home.hero />
 
-    {{-- About Us Component --}}
-    <x-home.aboutus />
+        {{-- About Us Component --}}
+        <x-home.aboutus />
+    </div>
 
-    {{-- Courses Component --}}
-    <x-home.courses />
+    <div class="bg-gradient-to-b from-gray-800 via-gray-900 to-gray-900">
+        {{-- Courses Component --}}
+        <x-home.courses />
 
-    {{-- Expert Component --}}
-    <x-home.experts />
+        {{-- Expert Component --}}
+        <x-home.experts />
 
-    {{-- Testimonies Component --}}
-    <x-home.testimonies />
+        {{-- Testimonies Component --}}
+        <x-home.testimonies />
+    </div>
 </x-layout>
