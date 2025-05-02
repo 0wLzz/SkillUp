@@ -28,6 +28,7 @@ Route::view('/', 'index')->name('home_page');
 Route::view('/courses', 'courses')->name('course_page');
 Route::view('/courses/detail', 'courses.detail')->name('course_detail');
 Route::view('/courses/payment', 'courses.payment')->name('course_payment');
+Route::view('/courses/video', 'courses.videoPage')->name('course_video');
 
 // Auth Pages & Actions
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login_page');
