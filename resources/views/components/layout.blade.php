@@ -15,7 +15,7 @@
 <body>
     <header class="fixed w-full z-100">
         <nav class="border-gray-200 bg-gray-900">
-            <div class="flex gap-4 items-center p-8 w-full justify-between">
+            <div class="flex gap-4 items-center p-4 w-full justify-between">
                 <div class="flex items-center gap-8">
                     <a href="{{ route('home_page') }}" class="items-center space-x-3 rtl:space-x-reverse">
                         <img src="{{ asset('assets/SkillUp.png') }}" class="h-8" alt="SkillUp Logo" />
@@ -53,7 +53,7 @@
         </nav>
     </header>
 
-    <div class="h-24"></div>
+    <div class="h-21"></div>
 
     {{ $slot }}
 

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Admin\TutorRequestController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TutorController;
 
 // Tutor
@@ -17,6 +18,7 @@ Route::get('/admin/subscription', [AdminController::class, 'subscription'])->nam
 Route::get('/admin/tutors', [AdminController::class, 'tutor'])->name('manage_tutors_page');
 Route::delete('/admin/tutors/delete/{id}', [AdminController::class, 'delete_tutor'])->name('delete_tutor');
 Route::resource('/admin/courses', CourseController::class);
+Route::resource('/admin/category', CategoryController::class);
 
 // Request tutor
 Route::get('/admin/tutors/requests', [TutorRequestController::class, 'index'])->name('tutor_requests.index');
