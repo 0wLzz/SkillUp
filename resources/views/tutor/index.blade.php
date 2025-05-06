@@ -1,5 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.46.0/dist/apexcharts.min.js"></script>
 <x-layout>
+    @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="bg-gray-900">
         <div class="container mx-auto p-4 md:p-6">
             <!-- Header -->
@@ -254,27 +259,33 @@
                 <!-- Course Grid -->
                 <div class="grid grid-cols-4 gap-6">
                     <!-- Course Card 1 -->
-                    <div class="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                        <img src="{{ asset('assets/AboutUs.png') }}" alt="Course Image" class="w-full object-cover">
-                        <div class="p-4">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-semibold text-white mb-2">Web Development Fundamentals</h3>
-                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Active</span>
-                            </div>
-                            <p class="text-gray-300 text-sm mb-4">Learn HTML, CSS, and JavaScript basics</p>
-                            <div class="flex justify-between items-center">
-                                <div class="flex items-center text-yellow-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                    <span class="ml-1 text-sm">4.8</span>
+                    @foreach ($ownedCourse as $oc)
+                        <div
+                            class="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                            <a href="{{ route('tutor.course.edit', $oc) }}">
+                                <img src="{{ asset('assets/AboutUs.png') }}" alt="Course Image"
+                                    class="w-full object-cover">
+                            </a>
+                            <div class="p-4">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-semibold text-white mb-2">Web Development Fundamentals</h3>
+                                    <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Active</span>
                                 </div>
-                                <span class="text-gray-400 text-sm">24 Lessons</span>
+                                <p class="text-gray-300 text-sm mb-4">Learn HTML, CSS, and JavaScript basics</p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center text-yellow-400">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <span class="ml-1 text-sm">4.8</span>
+                                    </div>
+                                    <span class="text-gray-400 text-sm">24 Lessons</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
 
                     <!-- Add New Course Card -->
                     <div id="addCourseCard"
@@ -286,18 +297,20 @@
                                     d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                             </svg>
                             <h3 class="text-lg font-semibold text-white mb-2">Add New Course</h3>
-                            <form id="courseForm" class="w-full space-y-4">
+                            <form id="courseForm" class="w-full space-y-4" method="POST"
+                                action="{{ route('courses.store') }}">
+                                @csrf
                                 <div>
                                     <label for="courseTitle"
                                         class="block text-sm font-medium text-gray-300 mb-1">Course
                                         Title</label>
-                                    <input type="text" id="courseTitle"
+                                    <input type="text" id="courseTitle" name="title"
                                         class="w-full bg-gray-800 border border-gray-600 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </div>
                                 <div>
                                     <label for="courseDescription"
                                         class="block text-sm font-medium text-gray-300 mb-1">Description</label>
-                                    <textarea id="courseDescription" rows="3"
+                                    <textarea id="courseDescription" rows="3" name="Description"
                                         class="w-full bg-gray-800 border border-gray-600 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                                 </div>
                                 <div class="flex gap-3">
@@ -338,14 +351,14 @@
         });
 
         // Form submission
-        courseForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically handle form submission to your backend
-            alert('Course added successfully!');
-            addCourseCard.classList.add('hidden');
-            courseForm.reset();
-            // You would then refresh the course list or add the new course to the DOM
-        });
+        // courseForm.addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     // Here you would typically handle form submission to your backend
+        //     alert('Course added successfully!');
+        //     addCourseCard.classList.add('hidden');
+        //     courseForm.reset();
+        //     // You would then refresh the course list or add the new course to the DOM
+        // });
     });
 </script>
 <script>

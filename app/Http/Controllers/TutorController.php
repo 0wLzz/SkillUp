@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class TutorController extends Controller
@@ -9,11 +11,18 @@ class TutorController extends Controller
 
     public function index()
     {
-        return view('tutor.index');
+        $course = Course::all();
+        return view('tutor.index', ['ownedCourse' => $course]);
     }
 
-    public function edit()
+    public function editCourse(Course $course)
     {
-        return view('tutor.edit');
+        $categories = Category::all();
+        return view('tutor.editCourse', compact(['course', 'categories']));
+    }
+
+    public function editProdfile()
+    {
+        return view('tutor.editProfile');
     }
 }

@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Tutor extends Model
+class Tutor extends Authenticatable
 {
-    use SoftDeletes;
+    use SoftDeletes, HasFactory, Notifiable;
+
+    protected $guarded = 'admin';
+
     protected $fillable = [
         'name',
         'email',

@@ -6,15 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class home.courses extends Component
+class Courses extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        public $courses
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

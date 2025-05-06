@@ -161,8 +161,7 @@
 
                 <!-- Course Details -->
                 <div class="text-gray-900 dark:text-white">
-                    <h1 class="text-3xl md:text-4xl font-bold mb-6">Belajar Membangun Koneksi dengan Orang yang Belum
-                        Dikenal</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-6">{{ $course->title }}</h1>
 
                     <div class="prose dark:prose-invert max-w-none mb-8">
                         <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
@@ -401,10 +400,10 @@
 
                 <div class="relative">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {{-- <x-card.course />
                         <x-card.course />
                         <x-card.course />
-                        <x-card.course />
-                        <x-card.course />
+                        <x-card.course /> --}}
                     </div>
                 </div>
 

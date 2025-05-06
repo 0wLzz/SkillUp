@@ -25,26 +25,27 @@ class CourseController extends Controller
     {
         $request->validate([
             'title' => 'required|string',
-            'subtitle' => 'nullable|string',
-            'teacher' => 'nullable|string',
+            'desscription' => 'nullable|string',
+            // 'teacher' => 'nullable|string',
 
-            'thumbnail' => 'nullable|image|mimes:jpg,png,jpeg|max:20480',
+            // 'thumbnail' => 'nullable|image|mimes:jpg,png,jpeg|max:20480',
         ]);
 
-        $path = null;
-        if ($request->hasFile('thumbnail')) {
-            $path = $request->file('thumbnail')->store('thumbnails', 'public');
-        }
+        // $path = null;
+        // if ($request->hasFile('thumbnail')) {
+        //     $path = $request->file('thumbnail')->store('thumbnails', 'public');
+        // }
 
         Course::create([
             'title' => $request->title,
-            'subtitle' => $request->subtitle,
-            'teacher' => $request->teacher,
+            'description' => $request->subtitle,
+            'category_id' => 1,
+            'tutor_id' => 1
 
-            'thumbnail' => $path,
+            // 'thumbnail' => $path,
         ]);
 
-        return redirect()->route('courses.index')->with('success', 'Course berhasil ditambahkan!');
+        return redirect()->back()->with('success', 'Course berhasil ditambahkan!');
     }
 
     // Form edit course

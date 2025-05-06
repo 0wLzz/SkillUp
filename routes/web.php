@@ -7,10 +7,12 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Admin\TutorRequestController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TutorController;
+use App\Http\Controllers\UserController;
 
 // Tutor
 Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
-Route::get('/tutor/edit/', [TutorController::class, 'edit'])->name('tutor_edit');
+Route::get('/tutor/editProfile/{tutor}', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
+Route::get('/tutor/edit/{oc}', [TutorController::class, 'editCourse'])->name('tutor.course.edit');
 
 // Admin
 Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');
@@ -26,9 +28,10 @@ Route::put('/admin/tutors/requests/{id}/approve', [TutorRequestController::class
 Route::put('/admin/tutors/requests/{id}/reject', [TutorRequestController::class, 'reject'])->name('tutor_requests.reject');
 
 // Public Pages
-Route::view('/', 'index')->name('home_page');
-Route::view('/courses', 'courses')->name('course_page');
-Route::view('/courses/detail', 'courses.detail')->name('course_detail');
+Route::get('/', [UserController::class, 'index'])->name('home_page');
+Route::get('/courses', [UserController::class, 'course_page'])->name('course_page');
+Route::get('/courses/detail/{course}', [UserController::class, 'course_detail'])->name('course_detail');
+
 Route::view('/courses/payment', 'courses.payment')->name('course_payment');
 Route::view('/courses/video', 'courses.videoPage')->name('course_video');
 

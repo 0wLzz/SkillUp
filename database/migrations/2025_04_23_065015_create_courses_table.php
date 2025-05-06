@@ -17,10 +17,11 @@ return new class extends Migration
             $table->foreignId('tutor_id')->constrained('tutors')->cascadeOnUpdate()->cascadeOnDelete(); // Foreign Key Tutor
             $table->string('title'); // Judul kursus
             $table->string('subtitle')->nullable(); // Subjudul, bisa kosong
-            $table->string('teacher')->nullable(); // Nama pengajar
+            $table->bigInteger('price')->nullable(); // Subjudul, bisa kosong
+            $table->string('description')->nullable(); // Subjudul, bisa kosong
             $table->integer('students')->default(0); // Jumlah siswa, default 0
             $table->integer('videos')->default(0); // Jumlah video, default 0
-            $table->string('thumbnail')->nullable(); // Path gambar thumbnail
+            // $table->string('thumbnail')->nullable(); // Path gambar thumbnail
             $table->timestamps(); // created_at & updated_at otomatis
         });
     }

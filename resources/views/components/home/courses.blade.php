@@ -34,8 +34,9 @@
 
         {{-- Courses --}}
         <div class="grid grid-cols-4 gap-8">
-
-            <x-card.course />
+            @foreach ($courses as $course)
+                <x-card.course :course="$course" />
+            @endforeach
 
         </div>
 
