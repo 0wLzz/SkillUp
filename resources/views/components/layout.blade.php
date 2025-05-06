@@ -20,7 +20,8 @@
                     <a href="{{ route('home_page') }}" class="items-center space-x-3 rtl:space-x-reverse">
                         <img src="{{ asset('assets/SkillUp.png') }}" class="h-8" alt="SkillUp Logo" />
                     </a>
-                    <a href="" class="text-white text-lg p-2 rounded-lg hover:text-blue-400">Courses</a>
+                    <a href="{{ route('course_page') }}"
+                        class="text-white text-lg p-2 rounded-lg hover:text-blue-400">Courses</a>
                 </div>
                 <div class="flex items-center w-1/2">
                     <form>

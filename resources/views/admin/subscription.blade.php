@@ -2,9 +2,9 @@
     <div class="bg-gray-800 border-gray-200">
         <div class="max-w-screen-xl flex p-4 mx-auto justify-between items-center">
             <h1 class="text-white text-xl font-bold">Manage Subscription</h1>
-            <button type="button"
+            <a href="" type="button"
                 class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Add
-                Course</button>
+                Course</a>
         </div>
     </div>
 

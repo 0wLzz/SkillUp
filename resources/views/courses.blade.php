@@ -13,11 +13,6 @@
                 <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-300">
                     Discover expert-led courses to advance your career and personal growth.
                 </p>
-                <div class="mt-10">
-                    <input type="text" placeholder="Search courses..."
-                        class="px-6 py-3 w-full max-w-xl rounded-full bg-gray-700 text-white 
-                                  focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
             </div>
 
             <!-- Featured Courses -->
