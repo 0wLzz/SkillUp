@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/SkillUp-Favicon.png') }}">
     <title>SkillUp</title>
-    {{-- SwiperJs --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -17,39 +15,38 @@
 <body>
     <header class="fixed w-full z-100">
         <nav class="border-gray-200 bg-gray-900">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-8">
-                <a href="{{ route('home_page') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="{{ asset('assets/SkillUp.png') }}" class="h-8" alt="SkillUp Logo" />
-                </a>
-
-                <div class="w-auto flex items-center" id="navbar-default">
-                    <ul
-                        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="{{ route('home_page') }}"
-                                class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                                aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href=""
-                                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('course_page') }}"
-                                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Courses</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-                        </li>
-                    </ul>
-
+            <div class="flex gap-4 items-center p-8 w-full justify-between">
+                <div class="flex items-center gap-8">
+                    <a href="{{ route('home_page') }}" class="items-center space-x-3 rtl:space-x-reverse">
+                        <img src="{{ asset('assets/SkillUp.png') }}" class="h-8" alt="SkillUp Logo" />
+                    </a>
+                    <a href="" class="text-white text-lg p-2 rounded-lg hover:text-blue-400">Courses</a>
                 </div>
-                <div>
+                <div class="flex items-center w-1/2">
+                    <form>
+                        <label for="default-search"
+                            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </div>
+                            <input type="search" id="default-search"
+                                class="flex w-5xl p-4 ps-10 text-sm border rounded-full focus:ring-blue-500  bg-gray-700 border-gray-600 placeholder-gray-400 text-white  focus:border-blue-500"
+                                placeholder="Search Courses..." required />
+                            <button type="submit"
+                                class="text-white absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="flex gap-4">
                     <a href="{{ route('login_page') }}"
-                        class="text-white font-medium rounded-lg text-sm px-5 py-2.5  bg-blue-700 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300">Login</a>
+                        class="text-white font-medium rounded-lg hover:text-blue-500">Login</a>
                     <a href="{{ route('register_student') }}"
-                        class="text-white font-medium rounded-lg text-sm px-5 py-2.5 bg-purple-700 hover:bg-purple-600 focu:ring-4 focus:ring-purple-300">Register</a>
+                        class="text-white font-medium rounded-lg hover:text-blue-500">Register</a>
                 </div>
             </div>
         </nav>
@@ -59,7 +56,7 @@
 
     {{ $slot }}
 
-    <footer class="bg-gray-900">
+    <footer id="footer" class="bg-gray-900">
         <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-16 md:p-8 lg:p-10">
             <div class="grid grid-cols-2 gap-8 md:grid-cols-3 text-center">
                 <div>
