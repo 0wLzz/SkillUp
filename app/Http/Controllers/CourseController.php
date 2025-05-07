@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
@@ -26,23 +27,13 @@ class CourseController extends Controller
         $request->validate([
             'title' => 'required|string',
             'desscription' => 'nullable|string',
-            // 'teacher' => 'nullable|string',
-
-            // 'thumbnail' => 'nullable|image|mimes:jpg,png,jpeg|max:20480',
         ]);
-
-        // $path = null;
-        // if ($request->hasFile('thumbnail')) {
-        //     $path = $request->file('thumbnail')->store('thumbnails', 'public');
-        // }
 
         Course::create([
             'title' => $request->title,
             'description' => $request->subtitle,
             'category_id' => 1,
             'tutor_id' => 1
-
-            // 'thumbnail' => $path,
         ]);
 
         return redirect()->back()->with('success', 'Course berhasil ditambahkan!');
@@ -51,30 +42,51 @@ class CourseController extends Controller
     // Form edit course
     public function edit(Course $course)
     {
-        return view('admin.courses.edit', compact('course'));
+        $categories = Category::all();
+        return view('tutor.editCourse', compact(['course', 'categories']));
     }
 
     // Update data course
     public function update(Request $request, Course $course)
     {
         $request->validate([
+            'thumbnail' => 'nullable|image|mimes:jpg,png,jpeg|max:20480',
             'title' => 'required|string',
             'subtitle' => 'nullable|string',
-            'teacher' => 'nullable|string',
-
-            'thumbnail' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'description' => 'string',
+            'price' => 'min:100000|integer',
+            'benefits' => 'required|array|min:1',
+            'benefits.*' => 'required|string|max:255',
         ]);
-
-        $data = $request->only('title', 'subtitle', 'teacher', 'students', 'videos');
 
         if ($request->hasFile('thumbnail')) {
             $path = $request->file('thumbnail')->store('thumbnails', 'public');
             $course->thumbnail = $path;
         }
 
-        $course->update($request->only('title', 'subtitle', 'teacher', 'students', 'videos'));
+        $course->update([
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'description' => $request->description,
+            'price' => $request->price,
+            'category_id' => 1,
+            'tutor_id' => 1
+        ]);
 
-        return redirect()->route('courses.index')->with('success', 'Course berhasil diperbarui!');
+        // Get the Existing Benefits 
+        $existingBenefits = $course->benefits()->pluck('benefit');
+        // Compare the existing benefits and new benefits
+        $toDelete = $existingBenefits->diff($request->benefits);
+        // Remove all excluded benefit from the new benefits
+        $course->benefits()->whereIn('benefit', $toDelete)->delete();
+
+        foreach ($request->benefits as $courseBenefit) {
+            $course->benefits()->updateOrCreate([
+                'benefit' => $courseBenefit
+            ]);
+        }
+
+        return redirect()->route('tutor_dashboard')->with('success', 'Course berhasil diperbarui!');
     }
 
     // Hapus course

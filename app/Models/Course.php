@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     //
-    protected $fillable = ['title', 'subtitle', 'tutor_id', 'category_id', 'students', 'videos', 'thumbnail'];
+    protected $fillable = ['title', 'subtitle', 'tutor_id', 'category_id', 'students', 'videos', 'thumbnail', 'price', 'description'];
 
     public function category()
     {
@@ -17,5 +17,10 @@ class Course extends Model
     public function tutor()
     {
         return $this->hasOne(Category::class);
+    }
+
+    public function benefits()
+    {
+        return $this->hasMany(CourseBenefit::class);
     }
 }

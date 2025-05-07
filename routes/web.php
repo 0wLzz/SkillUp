@@ -12,14 +12,13 @@ use App\Http\Controllers\UserController;
 // Tutor
 Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
 Route::get('/tutor/editProfile/{tutor}', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
-Route::get('/tutor/edit/{oc}', [TutorController::class, 'editCourse'])->name('tutor.course.edit');
+Route::resource('/tutor/courses', CourseController::class);
 
 // Admin
 Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');
 Route::get('/admin/subscription', [AdminController::class, 'subscription'])->name('manage_subscription_page');
 Route::get('/admin/tutors', [AdminController::class, 'tutor'])->name('manage_tutors_page');
 Route::delete('/admin/tutors/delete/{id}', [AdminController::class, 'delete_tutor'])->name('delete_tutor');
-Route::resource('/admin/courses', CourseController::class);
 Route::resource('/admin/category', CategoryController::class);
 
 // Request tutor

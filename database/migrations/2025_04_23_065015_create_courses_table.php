@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('description')->nullable(); // Subjudul, bisa kosong
             $table->integer('students')->default(0); // Jumlah siswa, default 0
             $table->integer('videos')->default(0); // Jumlah video, default 0
-            // $table->string('thumbnail')->nullable(); // Path gambar thumbnail
+            $table->string('thumbnail')->nullable(); // Path gambar thumbnail
             $table->timestamps(); // created_at & updated_at otomatis
         });
     }

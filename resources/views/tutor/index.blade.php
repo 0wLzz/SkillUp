@@ -259,10 +259,10 @@
                 <!-- Course Grid -->
                 <div class="grid grid-cols-4 gap-6">
                     <!-- Course Card 1 -->
-                    @foreach ($ownedCourse as $oc)
+                    @foreach ($ownedCourse as $course)
                         <div
                             class="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                            <a href="{{ route('tutor.course.edit', $oc) }}">
+                            <a href="{{ route('courses.edit', $course) }}">
                                 <img src="{{ asset('assets/AboutUs.png') }}" alt="Course Image"
                                     class="w-full object-cover">
                             </a>
@@ -310,7 +310,7 @@
                                 <div>
                                     <label for="courseDescription"
                                         class="block text-sm font-medium text-gray-300 mb-1">Description</label>
-                                    <textarea id="courseDescription" rows="3" name="Description"
+                                    <textarea id="courseDescription" rows="3" name="description"
                                         class="w-full bg-gray-800 border border-gray-600 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                                 </div>
                                 <div class="flex gap-3">
