@@ -25,19 +25,25 @@
 
                         <!-- Thumbnail Image -->
                         <div class="flex flex-col col-span-2">
+
+                            <div class="mb-4">
+                                <span class="text-white mb-2 block">Current Thumbnail:</span>
+                                <img id="thumbnail-preview"
+                                    src="{{ isset($course->thumbnail) ? asset('storage/' . $course->thumbnail) : asset('assets/AboutUs.png') }}"
+                                    class="w-32 h-32 object-cover rounded border border-gray-500"
+                                    alt="Course Thumbnail">
+                            </div>
+
                             <label class="text-2xl text-white font-bold mb-2">Thumbnail Image</label>
                             <div class="flex items-center gap-4">
-                                @if (isset($course->thumbnail))
-                                    <img src="{{ asset('storage/' . $course->thumbnail) }}"
-                                        class="w-20 h-20 object-cover rounded">
-                                @endif
-                                <input name="thumbnail" type="file"
+                                <input id="thumbnail-input" name="thumbnail" type="file" accept="image/*"
                                     class="border-3 border-gray-600 p-4 text-white bg-gray-700 rounded">
                                 @error('thumbnail')
                                     <span class="text-red-500">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
+
 
                         <!-- Course Title -->
                         <div class="flex flex-col col-span-2">
@@ -178,4 +184,19 @@
             btn.closest('.benefit-item').remove();
         });
     });
+
+    // Javascript Image Change
+    document.getElementById('thumbnail-input').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('thumbnail-preview');
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
 </script>

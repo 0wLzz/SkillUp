@@ -19,6 +19,8 @@ Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');
 Route::get('/admin/subscription', [AdminController::class, 'subscription'])->name('manage_subscription_page');
 Route::get('/admin/tutors', [AdminController::class, 'tutor'])->name('manage_tutors_page');
 Route::delete('/admin/tutors/delete/{id}', [AdminController::class, 'delete_tutor'])->name('delete_tutor');
+Route::get('/admin/courses/select', [AdminController::class, 'selectPage'])->name('admin.course.selectPage');
+Route::patch('/admin/courses/select/{course}', [AdminController::class, 'selectFeatured'])->name('admin.course.select');
 Route::resource('/admin/category', CategoryController::class);
 
 // Request tutor

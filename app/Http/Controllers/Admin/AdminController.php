@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Tutor;
 
 class AdminController extends Controller
@@ -29,6 +30,20 @@ class AdminController extends Controller
     {
         $tutor = Tutor::find($id);
         $tutor->delete();
+        return redirect()->back();
+    }
+
+    public function selectPage()
+    {
+        $courses = Course::all();
+        return view('admin.courses.selectCourse', compact('courses'));
+    }
+
+    public function selectFeatured(Course $course)
+    {
+        $course->is_featured = !$course->is_featured;
+        $course->save();
+
         return redirect()->back();
     }
 }

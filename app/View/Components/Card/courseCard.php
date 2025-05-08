@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Card;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Course extends Component
+class courseCard extends Component
 {
 
     public function __construct(
@@ -18,6 +18,6 @@ class Course extends Component
      */
     function render(): View|Closure|string
     {
-        return view('components.card.course');
+        return view('components.card.course-card');
     }
 }
