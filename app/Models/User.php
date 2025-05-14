@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'email'
+        //'email'
         
     ];
 
@@ -47,4 +47,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function tutor()
+    {
+        return $this->hasOne(Tutor::class);
+    }
+
+    public function admin()
+    {
+        //return $this->hasOne(Admin::class);
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(CoursePurchase::class);
+    }
+
+
 }
