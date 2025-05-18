@@ -1,5 +1,5 @@
 <?php
-
+// memulai code "npm run dev"; php artisan serve;  ; 
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;

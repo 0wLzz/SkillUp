@@ -13,7 +13,8 @@ class EarningController extends Controller
     {
         //$user = Auth::user(); // versi global helper
         
-        $user = Auth::user();  // versi namespace
+        //$user = Auth::user();  // versi namespace
+        $user = \Illuminate\Support\Facades\Auth::user();  // menggunakan namespace penuh
 
         $purchases = CoursePurchase::with('course')->get();
 
