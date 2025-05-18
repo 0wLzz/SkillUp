@@ -176,6 +176,104 @@ F:.
 ³   ³   ³       ³   CourseController_20250423150836.php
 ³   ³   ³       ³   CourseController_20250423150837.php
 ³   ³   ³       ³   CourseController_20250423150842.php
+³   ³   ³       ³   EarningController_20250514155234.php
+³   ³   ³       ³   EarningController_20250514161301.php
+³   ³   ³       ³   EarningController_20250514161303.php
+³   ³   ³       ³   EarningController_20250514161926.php
+³   ³   ³       ³   EarningController_20250514161929.php
+³   ³   ³       ³   EarningController_20250514161940.php
+³   ³   ³       ³   EarningController_20250514161941.php
+³   ³   ³       ³   EarningController_20250514162026.php
+³   ³   ³       ³   EarningController_20250514162028.php
+³   ³   ³       ³   EarningController_20250514162044.php
+³   ³   ³       ³   EarningController_20250514162045.php
+³   ³   ³       ³   EarningController_20250514162047.php
+³   ³   ³       ³   EarningController_20250514162048.php
+³   ³   ³       ³   EarningController_20250514162052.php
+³   ³   ³       ³   EarningController_20250514162054.php
+³   ³   ³       ³   EarningController_20250514162205.php
+³   ³   ³       ³   EarningController_20250514162208.php
+³   ³   ³       ³   EarningController_20250514162400.php
+³   ³   ³       ³   EarningController_20250514162403.php
+³   ³   ³       ³   EarningController_20250514162408.php
+³   ³   ³       ³   EarningController_20250514162409.php
+³   ³   ³       ³   EarningController_20250514162411.php
+³   ³   ³       ³   EarningController_20250514163455.php
+³   ³   ³       ³   EarningController_20250514163458.php
+³   ³   ³       ³   EarningController_20250514173932.php
+³   ³   ³       ³   EarningController_20250514173933.php
+³   ³   ³       ³   EarningController_20250514173936.php
+³   ³   ³       ³   EarningController_20250514173937.php
+³   ³   ³       ³   EarningController_20250514173938.php
+³   ³   ³       ³   EarningController_20250514173939.php
+³   ³   ³       ³   EarningController_20250514173944.php
+³   ³   ³       ³   EarningController_20250514173945.php
+³   ³   ³       ³   EarningController_20250514173947.php
+³   ³   ³       ³   EarningController_20250514173948.php
+³   ³   ³       ³   EarningController_20250514180323.php
+³   ³   ³       ³   EarningController_20250514180324.php
+³   ³   ³       ³   EarningController_20250514180325.php
+³   ³   ³       ³   EarningController_20250514180327.php
+³   ³   ³       ³   EarningController_20250514180336.php
+³   ³   ³       ³   EarningController_20250514180337.php
+³   ³   ³       ³   EarningController_20250514180340.php
+³   ³   ³       ³   EarningController_20250514180341.php
+³   ³   ³       ³   EarningController_20250514180950.php
+³   ³   ³       ³   EarningController_20250514180952.php
+³   ³   ³       ³   EarningController_20250514180955.php
+³   ³   ³       ³   EarningController_20250514180956.php
+³   ³   ³       ³   EarningController_20250514180957.php
+³   ³   ³       ³   EarningController_20250514180958.php
+³   ³   ³       ³   EarningController_20250514181000.php
+³   ³   ³       ³   EarningController_20250514181001.php
+³   ³   ³       ³   EarningController_20250514181007.php
+³   ³   ³       ³   EarningController_20250514181008.php
+³   ³   ³       ³   EarningController_20250514181009.php
+³   ³   ³       ³   EarningController_20250514181011.php
+³   ³   ³       ³   EarningController_20250514181012.php
+³   ³   ³       ³   EarningController_20250514181013.php
+³   ³   ³       ³   EarningController_20250514181015.php
+³   ³   ³       ³   EarningController_20250514181018.php
+³   ³   ³       ³   EarningController_20250514181019.php
+³   ³   ³       ³   EarningController_20250514181353.php
+³   ³   ³       ³   EarningController_20250514181356.php
+³   ³   ³       ³   EarningController_20250514181416.php
+³   ³   ³       ³   EarningController_20250514181417.php
+³   ³   ³       ³   EarningController_20250514181419.php
+³   ³   ³       ³   EarningController_20250514181420.php
+³   ³   ³       ³   EarningController_20250514181431.php
+³   ³   ³       ³   EarningController_20250514181432.php
+³   ³   ³       ³   EarningController_20250514181435.php
+³   ³   ³       ³   EarningController_20250514181437.php
+³   ³   ³       ³   EarningController_20250514181439.php
+³   ³   ³       ³   EarningController_20250514181440.php
+³   ³   ³       ³   EarningController_20250514181505.php
+³   ³   ³       ³   EarningController_20250514181507.php
+³   ³   ³       ³   EarningController_20250514181510.php
+³   ³   ³       ³   EarningController_20250514181511.php
+³   ³   ³       ³   EarningController_20250514181531.php
+³   ³   ³       ³   EarningController_20250514181532.php
+³   ³   ³       ³   EarningController_20250514181534.php
+³   ³   ³       ³   EarningController_20250514181552.php
+³   ³   ³       ³   EarningController_20250514181553.php
+³   ³   ³       ³   EarningController_20250514181554.php
+³   ³   ³       ³   EarningController_20250514181555.php
+³   ³   ³       ³   EarningController_20250514181613.php
+³   ³   ³       ³   EarningController_20250514181614.php
+³   ³   ³       ³   EarningController_20250514181617.php
+³   ³   ³       ³   EarningController_20250514181618.php
+³   ³   ³       ³   EarningController_20250514181629.php
+³   ³   ³       ³   EarningController_20250514181630.php
+³   ³   ³       ³   EarningController_20250518211641.php
+³   ³   ³       ³   EarningController_20250518211700.php
+³   ³   ³       ³   EarningController_20250518211701.php
+³   ³   ³       ³   EarningController_20250518211705.php
+³   ³   ³       ³   EarningController_20250518211707.php
+³   ³   ³       ³   EarningController_20250518211714.php
+³   ³   ³       ³   EarningController_20250518211715.php
+³   ³   ³       ³   EarningController_20250518211717.php
+³   ³   ³       ³   EarningController_20250518211719.php
+³   ³   ³       ³   EarningController_20250518211722.php
 ³   ³   ³       ³   TutorRequestController_20250423164726.php
 ³   ³   ³       ³   TutorRequestController_20250423171248.php
 ³   ³   ³       ³   TutorRequestController_20250423171250.php
@@ -201,6 +299,10 @@ F:.
 ³   ³   ³       ³   TutorRequestController_20250424134457.php
 ³   ³   ³       ³   
 ³   ³   ³       ÀÄÄÄAdmin
+³   ³   ³               AdminController_20250429214333.php
+³   ³   ³               AdminController_20250518210931.php
+³   ³   ³               AdminController_20250518210932.php
+³   ³   ³               AdminController_20250518210946.php
 ³   ³   ³               TutorRequestController_20250423175117.php
 ³   ³   ³               TutorRequestController_20250424073718.php
 ³   ³   ³               TutorRequestController_20250424073719.php
@@ -257,9 +359,43 @@ F:.
 ³   ³   ³       TutorStatusMail_20250424084725.php
 ³   ³   ³       
 ³   ³   ÀÄÄÄModels
+³   ³           Admin_20250518211006.php
+³   ³           Admin_20250518211356.php
+³   ³           Admin_20250518211357.php
+³   ³           Admin_20250518211408.php
+³   ³           CoursePurchase_20250514164224.php
+³   ³           CoursePurchase_20250514164306.php
+³   ³           CoursePurchase_20250514164309.php
+³   ³           CoursePurchase_20250514164327.php
+³   ³           CoursePurchase_20250514164328.php
+³   ³           CoursePurchase_20250514164330.php
 ³   ³           Course_20250423135012.php
 ³   ³           Course_20250423140709.php
 ³   ³           Course_20250423140710.php
+³   ³           Course_20250509211141.php
+³   ³           Course_20250514104524.php
+³   ³           Course_20250514104526.php
+³   ³           Course_20250514104624.php
+³   ³           Course_20250514104626.php
+³   ³           Course_20250514104627.php
+³   ³           Course_20250514104628.php
+³   ³           Course_20250514104637.php
+³   ³           Course_20250514104638.php
+³   ³           Course_20250514163512.php
+³   ³           Course_20250514163514.php
+³   ³           Course_20250514163516.php
+³   ³           Course_20250514163517.php
+³   ³           Course_20250514163520.php
+³   ³           Course_20250514163521.php
+³   ³           Course_20250514163534.php
+³   ³           Course_20250514163535.php
+³   ³           Course_20250514163536.php
+³   ³           Course_20250514163537.php
+³   ³           Course_20250514163543.php
+³   ³           Course_20250514163545.php
+³   ³           Course_20250514164426.php
+³   ³           Course_20250514164427.php
+³   ³           Course_20250514164432.php
 ³   ³           TutorRequest_20250423164724.php
 ³   ³           TutorRequest_20250423164839.php
 ³   ³           TutorRequest_20250423164842.php
@@ -268,6 +404,54 @@ F:.
 ³   ³           TutorRequest_20250506085611.php
 ³   ³           TutorRequest_20250506085612.php
 ³   ³           TutorRequest_20250506085622.php
+³   ³           User_20250423124357.php
+³   ³           User_20250514160440.php
+³   ³           User_20250514160442.php
+³   ³           User_20250514160443.php
+³   ³           User_20250514160446.php
+³   ³           User_20250514160447.php
+³   ³           User_20250514160453.php
+³   ³           User_20250514160454.php
+³   ³           User_20250514160537.php
+³   ³           User_20250514160539.php
+³   ³           User_20250514160550.php
+³   ³           User_20250514160552.php
+³   ³           User_20250514160554.php
+³   ³           User_20250514160555.php
+³   ³           User_20250514160556.php
+³   ³           User_20250514160602.php
+³   ³           User_20250514160603.php
+³   ³           User_20250514160621.php
+³   ³           User_20250514160622.php
+³   ³           User_20250514160951.php
+³   ³           User_20250514160954.php
+³   ³           User_20250514160955.php
+³   ³           User_20250514160956.php
+³   ³           User_20250514161003.php
+³   ³           User_20250514161004.php
+³   ³           User_20250514161022.php
+³   ³           User_20250514161023.php
+³   ³           User_20250514161029.php
+³   ³           User_20250514161030.php
+³   ³           User_20250514161036.php
+³   ³           User_20250514161038.php
+³   ³           User_20250514163557.php
+³   ³           User_20250514163606.php
+³   ³           User_20250514163611.php
+³   ³           User_20250514163612.php
+³   ³           User_20250514164354.php
+³   ³           User_20250514164356.php
+³   ³           User_20250514164358.php
+³   ³           User_20250514164401.php
+³   ³           User_20250514164402.php
+³   ³           User_20250518210341.php
+³   ³           User_20250518210342.php
+³   ³           User_20250518210348.php
+³   ³           User_20250518210349.php
+³   ³           User_20250518210507.php
+³   ³           User_20250518210508.php
+³   ³           User_20250518211446.php
+³   ³           User_20250518211449.php
 ³   ³           
 ³   ÃÄÄÄdatabase
 ³   ³   ÀÄÄÄmigrations
@@ -281,6 +465,53 @@ F:.
 ³   ³           2025_04_23_094727_create_tutor_requests_table_20250423174833.php
 ³   ³           2025_04_23_094727_create_tutor_requests_table_20250423174835.php
 ³   ³           2025_04_23_094727_create_tutor_requests_table_20250423174843.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103612.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103744.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103747.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103751.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103752.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103754.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103755.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103756.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103757.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103758.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103759.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103807.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103808.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103813.php
+³   ³           2025_05_14_033613_create_course_purchases_table_20250514103814.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514103825.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514103905.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514103908.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104035.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104037.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104038.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104044.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104045.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104103.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104104.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104914.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104916.php
+³   ³           2025_05_14_033826_add_price_and_tutor_id_to_courses_table_20250514104923.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211118.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211158.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211159.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211200.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211201.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211210.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211211.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211213.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211214.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211219.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211220.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211231.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211232.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211240.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211241.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211242.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211249.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211250.php
+³   ³           2025_05_18_141119_create_admins_table_20250518211253.php
 ³   ³           
 ³   ÃÄÄÄresources
 ³   ³   ÀÄÄÄviews
@@ -381,6 +612,32 @@ F:.
 ³   ³       ³       admin_layout.blade_20250423174658.php
 ³   ³       ³       admin_layout.blade_20250423174659.php
 ³   ³       ³       admin_layout.blade_20250423174701.php
+³   ³       ³       
+³   ³       ÃÄÄÄearnings
+³   ³       ³       index.blade_20250514161435.php
+³   ³       ³       index.blade_20250514161451.php
+³   ³       ³       index.blade_20250514161452.php
+³   ³       ³       index.blade_20250514175058.php
+³   ³       ³       index.blade_20250514175059.php
+³   ³       ³       index.blade_20250514175102.php
+³   ³       ³       index.blade_20250514175103.php
+³   ³       ³       index.blade_20250514175142.php
+³   ³       ³       index.blade_20250514175144.php
+³   ³       ³       index.blade_20250514175220.php
+³   ³       ³       index.blade_20250514175222.php
+³   ³       ³       index.blade_20250514175228.php
+³   ³       ³       index.blade_20250514175229.php
+³   ³       ³       index.blade_20250514175231.php
+³   ³       ³       index.blade_20250514175232.php
+³   ³       ³       index.blade_20250514175300.php
+³   ³       ³       index.blade_20250514175301.php
+³   ³       ³       index.blade_20250514175305.php
+³   ³       ³       index.blade_20250514175306.php
+³   ³       ³       index.blade_20250514175308.php
+³   ³       ³       index.blade_20250514175310.php
+³   ³       ³       index.blade_20250514175635.php
+³   ³       ³       index.blade_20250514175637.php
+³   ³       ³       index.blade_20250514180038.php
 ³   ³       ³       
 ³   ³       ÀÄÄÄemails
 ³   ³               tutor-status.blade_20250424082244.php
@@ -489,6 +746,16 @@ F:.
 ³           web_20250423175243.php
 ³           web_20250423175244.php
 ³           web_20250423175246.php
+³           web_20250509211142.php
+³           web_20250514161139.php
+³           web_20250514161140.php
+³           web_20250514161159.php
+³           web_20250514161201.php
+³           web_20250514180226.php
+³           web_20250514180228.php
+³           web_20250514181122.php
+³           web_20250514181124.php
+³           web_20250514181125.php
 ³           
 ÃÄÄÄapp
 ³   ÃÄÄÄHttp
@@ -497,6 +764,7 @@ F:.
 ³   ³       ³   CategoryController.php
 ³   ³       ³   Controller.php
 ³   ³       ³   CourseController.php
+³   ³       ³   EarningController.php
 ³   ³       ³   TutorController.php
 ³   ³       ³   
 ³   ³       ÀÄÄÄAdmin
@@ -507,8 +775,10 @@ F:.
 ³   ³       TutorStatusMail.php
 ³   ³       
 ³   ÃÄÄÄModels
+³   ³       Admin.php
 ³   ³       Category.php
 ³   ³       Course.php
+³   ³       CoursePurchase.php
 ³   ³       Tutor.php
 ³   ³       TutorRequest.php
 ³   ³       User.php
@@ -563,7 +833,9 @@ F:.
 ³   ³       2025_04_23_094052_create_tutor_requests_table.php
 ³   ³       2025_04_28_133818_create_tutors_table.php
 ³   ³       2025_05_06_083805_create_categories_table.php
-³   ³       2025_05_14_030819_nama_tabel.php
+³   ³       2025_05_14_033613_create_course_purchases_table.php
+³   ³       2025_05_14_033826_add_price_and_tutor_id_to_courses_table.php
+³   ³       2025_05_18_141119_create_admins_table.php
 ³   ³       
 ³   ÀÄÄÄseeders
 ³           DatabaseSeeder.php
@@ -8708,6 +8980,9 @@ F:.
 ³       ³       payment.blade.php
 ³       ³       videoPage.blade.php
 ³       ³       
+³       ÃÄÄÄearnings
+³       ³       index.blade.php
+³       ³       
 ³       ÃÄÄÄemails
 ³       ³       tutor-status.blade.php
 ³       ³       
@@ -8771,11 +9046,13 @@ F:.
 ³   ³           4e98b09e96056d3bf441bdf7931becfa.php
 ³   ³           4fd9fccd474daed96bbcb45b42691737.php
 ³   ³           550e662244d592cab6dc39bfc55fd8a8.php
+³   ³           564e26ca240f8085260bc0e940ceb1f0.php
 ³   ³           5b6a5c92e1e8da026021dffbe626c380.php
 ³   ³           5d1b6b8633002317aaec5f468028ab59.php
 ³   ³           5d873bb847ac99a0032ab5e1f19af2a4.php
 ³   ³           658838dd37a312c976277c5fdbb9618a.php
 ³   ³           8ef8a7e909967f9234c0458eb5c12bd0.php
+³   ³           8fd70f88ff0eeb1e012efb079b314bb4.php
 ³   ³           91c47a64f076e99a3d09ca634e9f8a7c.php
 ³   ³           995e68b50be8df8a4406f81050e02a31.php
 ³   ³           9ac1168f27a283e040645f589c138ffd.php

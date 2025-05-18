@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\TutorRequestController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\EarningController;
-
+use App\Http\Controllers\Admin\SubscriptionController;
 // Tutor
 Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
 Route::get('/tutor/edit/', [TutorController::class, 'edit'])->name('tutor_edit');
