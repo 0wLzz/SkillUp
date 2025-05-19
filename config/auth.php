@@ -40,7 +40,17 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
+
+        'tutor' => [
+            'driver' => 'session',
+            'provider' => 'tutors',
+        ],
     ],
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -63,6 +73,15 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+            
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,  // Kalau kamu punya model Student, ganti di sini
+        ],
+        'tutors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Tutor::class,
         ],
 
         // 'users' => [

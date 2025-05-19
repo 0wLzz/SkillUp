@@ -9,6 +9,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\EarningController;
 use App\Http\Controllers\Admin\SubscriptionController;
+use App\Http\Controllers\StudentController;
+
+
+
 // Tutor
 Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
 Route::get('/tutor/edit/', [TutorController::class, 'edit'])->name('tutor_edit');
@@ -49,3 +53,9 @@ Route::post('/register/tutor', [AuthController::class, 'storeTutor'])->name('reg
 
 Route::get('/earnings', [EarningController::class, 'index'])->middleware('auth')->name('earnings');
 Route::get('/earnings-data/{year}', [EarningController::class, 'getEarningsData']);
+
+// Student
+Route::middleware(['auth:student'])->group(function () {
+    Route::get('/student/purchase', [StudentController::class, 'index'])->name('student.purchases');
+    Route::post('/student/purchase/{id}/upload', [StudentController::class, 'uploadPayment'])->name('student.uploadPayment');
+});

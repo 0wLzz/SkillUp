@@ -1,5 +1,6 @@
 <?php
-// memulai code "npm run dev"; php artisan serve;  ; 
+// memulai code "npm run dev"; php artisan serve; php artisan migrate  ; tree > struktur.txt
+ 
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
