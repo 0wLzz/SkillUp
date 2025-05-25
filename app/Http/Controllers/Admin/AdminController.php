@@ -1,11 +1,13 @@
 <?php
-
+// memulai code "npm run dev"; php artisan serve; php artisan migrate  ; tree > struktur.txt
+ 
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Tutor;
+use App\Models\CoursePurchase;
 
 class AdminController extends Controller
 {
@@ -17,7 +19,9 @@ class AdminController extends Controller
 
     public function subscription()
     {
-        return view('admin.subscription');
+        $subscriptions = CoursePurchase::with('user', 'course')->get();
+        return view('admin.subscription', compact('subscriptions'));
+        //return view('admin.subscription');
     }
 
     public function tutor()

@@ -1,5 +1,7 @@
 <?php
 
+// memulai code "npm run dev"; php artisan serve; php artisan migrate ; 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

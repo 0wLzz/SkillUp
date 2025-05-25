@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tutors', function (Blueprint $table) {
+        /**
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email'); 
-            $table->string('occupation')->nullable();
-            $table->string('image')->nullable();
-            $table->string('password');
-            $table->softDeletes();
+            $table->timestamps();
+        }); */
+        
+        Schema::create('admins', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users'); // Relasi ke tabel users
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tutors');
+        Schema::dropIfExists('admins');
     }
 };
