@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Curriculum;
 use Illuminate\Http\Request;
 
 class TutorController extends Controller
@@ -21,8 +22,13 @@ class TutorController extends Controller
         return view('tutor.editCourse', compact(['course', 'categories']));
     }
 
-    public function editProdfile()
+    public function editProfile()
     {
         return view('tutor.editProfile');
+    }
+
+    public function curriculumManage(Course $course)
+    {
+        return view('tutor.editCurriculum', compact('course'));
     }
 }

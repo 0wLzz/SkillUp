@@ -52,6 +52,7 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
                             <div>
+                                {{-- Category --}}
                                 <p class="text-blue-600 font-semibold">Communication</p>
                                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">Benefits</h2>
                             </div>
@@ -67,38 +68,16 @@
                         </div>
 
                         <ul class="space-y-3 mb-6 text-gray-700 dark:text-gray-300">
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Materi Leadership
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Practical Networking Techniques
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Communication Strategies
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Real-world Case Studies
-                            </li>
+                            @foreach ($course->benefits as $benefit)
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    {{ $benefit->benefit }}
+                                </li>
+                            @endforeach
                         </ul>
 
                         <div class="grid grid-cols-4 gap-4 text-center mb-6">
@@ -142,19 +121,18 @@
                         <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <span class="text-gray-500 dark:text-gray-400 line-through">Rp. 750.000</span>
-                                    <p class="text-2xl font-bold text-gray-900 dark:text-white">Rp. 500.000</p>
+                                    <span
+                                        class="text-gray-500 dark:text-gray-400 line-through">@currency($course->price * 1.2)</span>
+                                    <p class="text-2xl font-bold text-gray-900 dark:text-white">@currency($course->price)</p>
                                 </div>
                                 <span
-                                    class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">33%
+                                    class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">15%
                                     OFF</span>
                             </div>
                             <a href="{{ route('course_payment') }}"
                                 class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300">
                                 Enroll Now
                             </a>
-                            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">30-day money-back
-                                guarantee</p>
                         </div>
                     </div>
                 </div>
@@ -165,10 +143,7 @@
 
                     <div class="prose dark:prose-invert max-w-none mb-8">
                         <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
-                            Master the art of networking and build meaningful connections with strangers in both
-                            professional and personal settings. This comprehensive course provides practical techniques
-                            and psychological insights to help you overcome social barriers and create lasting
-                            relationships.
+                            {{ $course->subtitle }}
                         </p>
 
                         <div class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500 mb-6">
@@ -186,25 +161,7 @@
                     <div class="mb-8">
                         <h2 class="text-2xl font-bold mb-4">Course Description</h2>
                         <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
-                            <p>In today's interconnected world, the ability to build relationships with strangers is a
-                                crucial skill that can open doors to new opportunities, friendships, and professional
-                                growth. This course is designed to transform your approach to networking and social
-                                interactions.</p>
-
-                            <p>Through a combination of psychological research, real-world case studies, and practical
-                                exercises, you'll learn how to:</p>
-
-                            <ul class="list-disc pl-5 space-y-1">
-                                <li>Approach strangers with confidence in any setting</li>
-                                <li>Create memorable first impressions</li>
-                                <li>Find common ground quickly</li>
-                                <li>Turn brief encounters into lasting connections</li>
-                                <li>Navigate cultural differences in social interactions</li>
-                            </ul>
-
-                            <p>Whether you're an introvert looking to feel more comfortable in social situations or an
-                                extrovert wanting to refine your networking skills, this course provides valuable
-                                insights and actionable strategies.</p>
+                            {{ $course->description }}
                         </div>
                     </div>
                 </div>
@@ -274,63 +231,31 @@
                         <div id="accordion-collapse-body-1" class="hidden"
                             aria-labelledby="accordion-collapse-heading-1">
                             <div class="p-5 border-t border-gray-200 dark:border-gray-700">
-                                <div
-                                    class="flex items-center justify-between py-3 px-4 hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <div class="flex items-center justify-between py-3 px-4 hover:bg-gray-700">
                                     <div class="flex items-center">
-                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-3" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
                                             </path>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
-                                        <span>Welcome to the Course</span>
+                                        <span class="text-white">Welcome to the Course</span>
                                     </div>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">5:22</span>
+                                    <span class="text-sm text-gray-400">5:22</span>
                                 </div>
-                                <div
-                                    class="flex items-center justify-between py-3 px-4 hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <div class="flex items-center justify-between py-3 px-4 hover:bg-gray-700">
                                     <div class="flex items-center">
-                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-3" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                                            </path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>The Psychology of First Impressions</span>
-                                    </div>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">12:45</span>
-                                </div>
-                                <div
-                                    class="flex items-center justify-between py-3 px-4 hover:bg-gray-50 dark:hover:bg-gray-700">
-                                    <div class="flex items-center">
-                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-3" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                                            </path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span>Overcoming Approach Anxiety</span>
-                                    </div>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">18:30</span>
-                                </div>
-                                <div
-                                    class="flex items-center justify-between py-3 px-4 hover:bg-gray-50 dark:hover:bg-gray-700">
-                                    <div class="flex items-center">
-                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400 mr-3" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                                             </path>
                                         </svg>
-                                        <span>Worksheet: Your Networking Goals</span>
+                                        <span class="text-white">Worksheet: Your Networking Goals</span>
                                     </div>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">PDF</span>
+                                    <span class="text-sm text-gray-400">PDF</span>
                                 </div>
                             </div>
                         </div>
@@ -364,33 +289,6 @@
                         </div>
                     </div>
 
-                    <!-- Module 3 -->
-                    <div class="border border-gray-200 dark:border-gray-700 border-t-0 rounded-b-lg">
-                        <h2 id="accordion-collapse-heading-3">
-                            <button type="button"
-                                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 gap-3"
-                                data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
-                                aria-controls="accordion-collapse-body-3">
-                                <span class="flex items-center">
-                                    <span
-                                        class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">3</span>
-                                    Building Rapport and Connection
-                                </span>
-                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M9 5 5 1 1 5" />
-                                </svg>
-                            </button>
-                        </h2>
-                        <div id="accordion-collapse-body-3" class="hidden"
-                            aria-labelledby="accordion-collapse-heading-3">
-                            <div class="p-5 border-t border-gray-200 dark:border-gray-700">
-                                <!-- Lesson items would go here -->
-                                <p class="text-gray-500 dark:text-gray-400">Coming soon...</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -407,7 +305,8 @@
                     </div>
                 </div>
 
-                <a href="" class="flex justify-end m-2 text-xl text-blue-600">More Courses..</a>
+                <a href="{{ route('course_page') }}" class="flex justify-end m-2 text-xl text-blue-600">More
+                    Courses..</a>
 
             </div>
         </div>

@@ -1,16 +1,14 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.46.0/dist/apexcharts.min.js"></script>
 <x-layout>
-    @if (session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">
-            {{ session('success') }}
-        </div>
-    @endif
     <div class="bg-gray-900">
         <div class="container mx-auto p-4 md:p-6">
             <!-- Header -->
             <header class="mb-8">
                 <h1 class="text-3xl font-bold text-white">My Dashboard</h1>
             </header>
+
+
+            <x-alert />
 
             <!-- Dashboard Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -268,10 +266,10 @@
                             </a>
                             <div class="p-4">
                                 <div class="flex justify-between items-start">
-                                    <h3 class="text-lg font-semibold text-white mb-2">Web Development Fundamentals</h3>
+                                    <h3 class="text-lg font-semibold text-white mb-2">{{ $course->title }}</h3>
                                     <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Active</span>
                                 </div>
-                                <p class="text-gray-300 text-sm mb-4">Learn HTML, CSS, and JavaScript basics</p>
+                                <p class="text-gray-300 text-sm mb-4">{{ $course->subtitle }}</p>
                                 <div class="flex justify-between items-center">
                                     <div class="flex items-center text-yellow-400">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
@@ -349,16 +347,6 @@
             addCourseCard.classList.add('hidden');
             courseForm.reset();
         });
-
-        // Form submission
-        // courseForm.addEventListener('submit', function(e) {
-        //     e.preventDefault();
-        //     // Here you would typically handle form submission to your backend
-        //     alert('Course added successfully!');
-        //     addCourseCard.classList.add('hidden');
-        //     courseForm.reset();
-        //     // You would then refresh the course list or add the new course to the DOM
-        // });
     });
 </script>
 <script>

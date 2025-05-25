@@ -6,13 +6,17 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\Admin\TutorRequestController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\UserController;
 
 // Tutor
 Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
 Route::get('/tutor/editProfile/{tutor}', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
+Route::get('/tutor/courses/{course}/curriculum', [TutorController::class, 'curriculumManage'])->name('tutor.curriculum.manage');
 Route::resource('/tutor/courses', CourseController::class);
+Route::post('/tutor/curriculums/store/{course}', [CurriculumController::class, 'store'])->name('tutor.curriculum.store');
+Route::delete('/tutor/curriculums/delete/{c}', [CurriculumController::class, 'destroy'])->name('tutor.curriculum.delete');
 
 // Admin
 Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');
