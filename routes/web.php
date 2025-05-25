@@ -15,11 +15,15 @@ use App\Http\Controllers\StudentController;
 
 // Tutor
 Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
-Route::get('/tutor/editProfile/{tutor}', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
-Route::get('/tutor/courses/{course}/curriculum', [TutorController::class, 'curriculumManage'])->name('tutor.curriculum.manage');
 Route::resource('/tutor/courses', CourseController::class);
+Route::get('/tutor/editProfile/{tutor}', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
 Route::post('/tutor/curriculums/store/{course}', [CurriculumController::class, 'store'])->name('tutor.curriculum.store');
 Route::delete('/tutor/curriculums/delete/{c}', [CurriculumController::class, 'destroy'])->name('tutor.curriculum.delete');
+Route::get('/tutor/courses/{course}/curriculum/{curriculum}', [TutorController::class, 'curriculumManage'])->name('tutor.curriculum.manage');
+Route::post('/tutor/curriculum//materials/store', [CurriculumController::class, 'storeMaterial'])->name('tutor.materials.store');
+Route::post('/tutor/curriculum/materials/{type}/{id}/update', [CurriculumController::class, 'updateMaterial'])->name('tutor.materials.update');
+Route::delete('/tutor/curriculum//materials/{type}/{id}/delete', [CurriculumController::class, 'deleteMaterial'])->name('tutor.materials.delete');
+
 
 // Admin
 Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');

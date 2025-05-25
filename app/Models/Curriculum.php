@@ -24,8 +24,8 @@ class Curriculum extends Model
         return $this->hasMany(MaterialWorksheet::class);
     }
 
-    public function getAllMaterial()
+    public function getAllMaterials()
     {
-        return $this->material_video->merge($this->material_worksheet);
+        return $this->material_video->concat($this->material_worksheet)->sortBy('created_at');
     }
 }

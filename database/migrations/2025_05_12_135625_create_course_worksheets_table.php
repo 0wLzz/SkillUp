@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('material_worksheets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('curiculum_id')->constrained('curriculums')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
+            $table->string('worksheet');
+            $table->foreignId('curriculum_id')->constrained('curriculums')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('description');
             $table->timestamps();
         });

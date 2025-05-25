@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     // Menampilkan semua course
-    public function index()
-    {
-        $courses = Course::all();
-        return view('admin.courses.index', compact('courses'));
-    }
+    // public function index()
+    // {
+    //     $courses = Course::all();
+    //     return view('admin.courses.index', compact('courses'));
+    // }
 
     // Form tambah course
     public function create()

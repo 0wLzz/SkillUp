@@ -16,7 +16,8 @@ class Course extends Model
         'videos',
         'thumbnail',
         'price',
-        'tutor_id'
+        'tutor_id',
+        'category_id'
     ];
 
     public function category()

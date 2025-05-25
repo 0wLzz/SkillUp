@@ -7,6 +7,8 @@
             </header>
         </div>
 
+        <x-alert />
+
         <!-- Main Form -->
         <div class="p-6 bg-gray-800">
             <div class="container mx-auto">
@@ -153,7 +155,9 @@
                                         class="border-3 border-gray-600 p-4 text-white bg-gray-700 rounded w-full">{{ $c->title }}
                                     </span>
 
-                                    <form action="">
+                                    <form method="GET"
+                                        action="{{ route('tutor.curriculum.manage', [$course, $c]) }}">
+                                        @csrf
                                         <button type="sbumit"
                                             class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                                             Manage
@@ -260,7 +264,7 @@
         // Add button (submit)
         const addBtn = document.createElement('button');
         addBtn.type = 'submit';
-        addBtn.className = 'px-8 py-2 bg-green-600 text-white rounded hover:bg-green-700';
+        addBtn.className = 'px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700';
         addBtn.innerText = 'Add';
 
         // Remove button

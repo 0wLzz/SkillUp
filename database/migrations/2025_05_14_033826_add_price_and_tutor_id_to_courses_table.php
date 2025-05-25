@@ -13,21 +13,19 @@ return new class extends Migration
 
     public function up()
     {
-        Schema::table('courses', function (Blueprint $table) {
-            $table->integer('price')->default(0)->after('title');
-            $table->foreignId('tutor_id')->nullable()->constrained('users')->after('price');
-        });
+        // Schema::table('courses', function (Blueprint $table) {
+        //     $table->integer('price')->default(0)->after('title');
+        //     $table->foreignId('tutor_id')->nullable()->constrained('users')->after('price');
+        // });
     }
 
 
     public function down()
     {
-        Schema::table('courses', function (Blueprint $table) {
-            $table->dropForeign(['tutor_id']);
-            $table->dropColumn('tutor_id');
-            $table->dropColumn('price');
-        });
+        // Schema::table('courses', function (Blueprint $table) {
+        //     $table->dropForeign(['tutor_id']);
+        //     $table->dropColumn('tutor_id');
+        //     $table->dropColumn('price');
+        // });
     }
-
-  
 };

@@ -27,8 +27,8 @@ class TutorController extends Controller
         return view('tutor.editProfile');
     }
 
-    public function curriculumManage(Course $course)
+    public function curriculumManage(Course $course, Curriculum $curriculum)
     {
-        return view('tutor.editCurriculum', compact('course'));
+        return view('tutor.editCurriculum', compact(['course', 'curriculum']));
     }
 }

@@ -209,86 +209,72 @@
                 </div>
 
                 <div id="accordion-collapse" data-accordion="collapse">
-                    <!-- Module 1 -->
-                    <div class="border border-gray-200 dark:border-gray-700 rounded-b-lg overflow-hidden">
-                        <h2 id="accordion-collapse-heading-1">
-                            <button type="button"
-                                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 gap-3"
-                                data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
-                                aria-controls="accordion-collapse-body-1">
-                                <span class="flex items-center">
-                                    <span
-                                        class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">1</span>
-                                    Introduction to Networking Fundamentals
-                                </span>
-                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M9 5 5 1 1 5" />
-                                </svg>
-                            </button>
-                        </h2>
-                        <div id="accordion-collapse-body-1" class="hidden"
-                            aria-labelledby="accordion-collapse-heading-1">
-                            <div class="p-5 border-t border-gray-200 dark:border-gray-700">
-                                <div class="flex items-center justify-between py-3 px-4 hover:bg-gray-700">
-                                    <div class="flex items-center">
-                                        <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                                            </path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
-                                        <span class="text-white">Welcome to the Course</span>
-                                    </div>
-                                    <span class="text-sm text-gray-400">5:22</span>
-                                </div>
-                                <div class="flex items-center justify-between py-3 px-4 hover:bg-gray-700">
-                                    <div class="flex items-center">
-                                        <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                                            </path>
-                                        </svg>
-                                        <span class="text-white">Worksheet: Your Networking Goals</span>
-                                    </div>
-                                    <span class="text-sm text-gray-400">PDF</span>
+                    @foreach ($course->curriculums as $curriculum)
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-b-lg overflow-hidden">
+                            <h2 id="accordion-collapse-heading-1">
+                                <button type="button"
+                                    class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 gap-3"
+                                    data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
+                                    aria-controls="accordion-collapse-body-1">
+                                    <span class="flex items-center">
+                                        <span
+                                            class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">1</span>
+                                        {{ $curriculum->title }}
+                                    </span>
+                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M9 5 5 1 1 5" />
+                                    </svg>
+                                </button>
+                            </h2>
+                            <div id="accordion-collapse-body-1" class="hidden"
+                                aria-labelledby="accordion-collapse-heading-1">
+                                <div class="p-5 border-t border-gray-200 dark:border-gray-700">
+                                    @forelse ($curriculum->getAllMaterials() as $material)
+                                        @if ($material->getTable() === 'material_videos')
+                                            {{-- Video --}}
+                                            <div class="flex items-center justify-between py-3 px-4 hover:bg-gray-700">
+                                                <div class="flex items-center">
+                                                    <svg class="w-5 h-5 text-gray-400 mr-3" fill="none"
+                                                        stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                                                        </path>
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                                        </path>
+                                                    </svg>
+                                                    <span class="text-white">Welcome to the Course</span>
+                                                </div>
+                                                <span
+                                                    class="text-sm text-gray-400">{{ date('H:i:s', $material->getDuration()) }}</span>
+                                            </div>
+                                        @else
+                                            {{-- Worksheet --}}
+                                            <div class="flex items-center justify-between py-3 px-4 hover:bg-gray-700">
+                                                <div class="flex items-center">
+                                                    <svg class="w-5 h-5 text-gray-400 mr-3" fill="none"
+                                                        stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                                        </path>
+                                                    </svg>
+                                                    <span class="text-white">Worksheet: {{ $material->title }}</span>
+                                                </div>
+                                                <span
+                                                    class="text-sm text-gray-400">{{ strtoupper(substr($material->worksheet, -3, 3)) }}</span>
+                                            </div>
+                                        @endif
+                                    @empty
+                                        <p class="text-gray-500 dark:text-gray-400">Coming soon...</p>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Module 2 -->
-                    <div class="border border-gray-200 dark:border-gray-700 border-t-0">
-                        <h2 id="accordion-collapse-heading-2">
-                            <button type="button"
-                                class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 gap-3"
-                                data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
-                                aria-controls="accordion-collapse-body-2">
-                                <span class="flex items-center">
-                                    <span
-                                        class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">2</span>
-                                    Conversation Starters and Ice Breakers
-                                </span>
-                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M9 5 5 1 1 5" />
-                                </svg>
-                            </button>
-                        </h2>
-                        <div id="accordion-collapse-body-2" class="hidden"
-                            aria-labelledby="accordion-collapse-heading-2">
-                            <div class="p-5 border-t border-gray-200 dark:border-gray-700">
-                                <!-- Lesson items would go here -->
-                                <p class="text-gray-500 dark:text-gray-400">Coming soon...</p>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
 
