@@ -5,7 +5,7 @@
             <nav class="flex py-6" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                     <li class="inline-flex items-center">
-                        <a href="#"
+                        <a href="{{ route('home_page') }}"
                             class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                             Home
                         </a>
@@ -17,7 +17,7 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <a href="#"
+                            <a href="{{ route('course_page') }}"
                                 class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Courses</a>
                         </div>
                     </li>
@@ -28,8 +28,8 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <span class="ms-1 text-sm font-medium text-blue-600 md:ms-2 dark:text-gray-400">Building
-                                Connections</span>
+                            <span
+                                class="ms-1 text-sm font-medium text-blue-600 md:ms-2 dark:text-gray-400">{{ $course->title }}</span>
                         </div>
                     </li>
                 </ol>
@@ -246,7 +246,10 @@
                                                             stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
                                                         </path>
                                                     </svg>
-                                                    <span class="text-white">Welcome to the Course</span>
+                                                    <a href="{{ route('course.video', ['video' => $material]) }}"
+                                                        class="hover:underline underline-offset-2 decoration-sky-500">
+                                                        <span class="text-white">{{ $material->title }}</span>
+                                                    </a>
                                                 </div>
                                                 <span
                                                     class="text-sm text-gray-400">{{ date('H:i:s', $material->getDuration()) }}</span>
@@ -262,7 +265,12 @@
                                                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                                                         </path>
                                                     </svg>
-                                                    <span class="text-white">Worksheet: {{ $material->title }}</span>
+                                                    <a href="{{ asset('storage/' . $material->worksheet) }}"
+                                                        target="_blank"
+                                                        class="hover:underline underline-offset-2 decoration-sky-500">
+                                                        <span class="text-white">Worksheet:
+                                                            {{ $material->title }}</span>
+                                                    </a>
                                                 </div>
                                                 <span
                                                     class="text-sm text-gray-400">{{ strtoupper(substr($material->worksheet, -3, 3)) }}</span>

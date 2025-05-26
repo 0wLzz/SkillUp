@@ -290,11 +290,11 @@
 
 
     // Attach delete logic to existing buttons on page load
-    // document.querySelectorAll('.remove-benefit').forEach(function(btn) {
-    //     btn.addEventListener('click', function() {
-    //         btn.closest('.benefit-item').remove();
-    //     });
-    // });
+    document.querySelectorAll('.remove-benefit').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            btn.closest('.benefit-item').remove();
+        });
+    });
 
     // Javascript Image Change
     document.getElementById('thumbnail-input').addEventListener('change', function(event) {

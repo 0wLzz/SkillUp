@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\MaterialVideo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
     // Menampilkan semua course
-    // public function index()
-    // {
-    //     $courses = Course::all();
-    //     return view('admin.courses.index', compact('courses'));
-    // }
+    public function index()
+    {
+        $courses = Course::all();
+        return view('admin.courses.index', compact('courses'));
+    }
 
     // Form tambah course
     public function create()
@@ -59,9 +61,10 @@ class CourseController extends Controller
             'benefits.*' => 'required|string|max:255',
         ]);
 
+        $path = $course->thumbnail;
         if ($request->hasFile('thumbnail')) {
+            Storage::delete($course->thumbnail);
             $path = $request->file('thumbnail')->store('thumbnails', 'public');
-            $course->thumbnail = $path;
         }
 
         $course->update([
@@ -69,14 +72,17 @@ class CourseController extends Controller
             'subtitle' => $request->subtitle,
             'description' => $request->description,
             'price' => $request->price,
+            'thumbnail' => $path,
             'category_id' => 1,
             'tutor_id' => 1
         ]);
 
         // Get the Existing Benefits 
         $existingBenefits = $course->benefits()->pluck('benefit');
+
         // Compare the existing benefits and new benefits
         $toDelete = $existingBenefits->diff($request->benefits);
+
         // Remove all excluded benefit from the new benefits
         $course->benefits()->whereIn('benefit', $toDelete)->delete();
 
@@ -92,7 +98,24 @@ class CourseController extends Controller
     // Hapus course
     public function destroy(Course $course)
     {
+        // Delete All Curriculums File and Materials
+        $materials = $course->curriculums->getAllMaterials();
+
+        foreach ($materials as $material) {
+            if ($material->getTable() == 'material_videos') {
+                Storage::disk('public')->delete($material->video);
+            } else {
+                Storage::disk('public')->delete($material->worksheet);
+            }
+        }
+
         $course->delete();
         return redirect()->back()->with('success', 'Course berhasil dihapus!');
+    }
+
+    // Menampilkan Course Video
+    public function course_video(MaterialVideo $video)
+    {
+        return view('courses.videoPage', compact('video'));
     }
 }

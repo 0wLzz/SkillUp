@@ -17,6 +17,8 @@ use App\Http\Controllers\StudentController;
 Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
 Route::resource('/tutor/courses', CourseController::class);
 Route::get('/tutor/editProfile/{tutor}', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
+
+// Curriculum Tutor
 Route::post('/tutor/curriculums/store/{course}', [CurriculumController::class, 'store'])->name('tutor.curriculum.store');
 Route::delete('/tutor/curriculums/delete/{c}', [CurriculumController::class, 'destroy'])->name('tutor.curriculum.delete');
 Route::get('/tutor/courses/{course}/curriculum/{curriculum}', [TutorController::class, 'curriculumManage'])->name('tutor.curriculum.manage');
@@ -44,8 +46,9 @@ Route::get('/', [UserController::class, 'index'])->name('home_page');
 Route::get('/courses', [UserController::class, 'course_page'])->name('course_page');
 Route::get('/courses/detail/{course}', [UserController::class, 'course_detail'])->name('course_detail');
 
+
 Route::view('/courses/payment', 'courses.payment')->name('course_payment');
-Route::view('/courses/video', 'courses.videoPage')->name('course_video');
+Route::get('/courses/video/{video}', [CourseController::class, 'course_video'])->name('course.video');
 
 // Auth Pages & Actions
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login_page');

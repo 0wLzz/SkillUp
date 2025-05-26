@@ -21,4 +21,9 @@ class MaterialVideo extends Model
 
         return $duration;
     }
+
+    public function curriculum()
+    {
+        return $this->belongsTo(Curriculum::class);
+    }
 }

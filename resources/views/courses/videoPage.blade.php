@@ -1,11 +1,12 @@
 <x-layout>
     <section class="bg-white dark:bg-gray-900 min-h-screen pb-8">
         <div class="max-w-screen-xl mx-auto px-4">
+
             <!-- Course Header -->
             <div class="py-6 border-b border-gray-200 dark:border-gray-700">
-                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Live Class: Building Professional Networks
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Live Class: {{ $video->title }}
                 </h1>
-                <p class="text-gray-600 dark:text-gray-400">Session 3: Effective Communication Strategies</p>
+                <p class="text-gray-600 dark:text-gray-400">{{ $video->curriculum->title }}</p>
             </div>
 
             <!-- Main Content Grid -->
@@ -15,8 +16,10 @@
                     <!-- Video Player -->
                     <div class="bg-black rounded-lg overflow-hidden aspect-video">
                         <!-- Replace with your actual video embed code -->
-                        <iframe src="https://stream.mux.com/your-stream-key.m3u8" class="w-full h-full" frameborder="0"
-                            allowfullscreen allow="autoplay; encrypted-media"></iframe>
+                        <video controls class="w-full h-auto rounded-lg bg-black" preload="metadata">
+                            <source src="{{ asset('storage/' . $video->video) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
 
                     <!-- Video Controls -->
