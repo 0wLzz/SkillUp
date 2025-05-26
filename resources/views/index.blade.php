@@ -12,7 +12,7 @@
         <x-home.courses :courses="$courses" />
 
         {{-- Expert Component --}}
-        <x-home.experts />
+        <x-home.experts :tutors="$tutors" />
 
         {{-- Testimonies Component --}}
         <x-home.testimonies />

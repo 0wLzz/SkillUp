@@ -211,14 +211,16 @@
                 <div id="accordion-collapse" data-accordion="collapse">
                     @foreach ($course->curriculums as $curriculum)
                         <div class="border border-gray-200 dark:border-gray-700 rounded-b-lg overflow-hidden">
-                            <h2 id="accordion-collapse-heading-1">
+                            <h2 id="{{ 'accordion-collapse-heading-' . $loop->index }}">
                                 <button type="button"
                                     class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 gap-3"
-                                    data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
-                                    aria-controls="accordion-collapse-body-1">
+                                    data-accordion-target="{{ '#accordion-collapse-body-' . $loop->index }}"
+                                    aria-expanded="true"
+                                    aria-controls="
+                                    {{ 'accordion-collapse-body-' . $loop->index }}">
                                     <span class="flex items-center">
                                         <span
-                                            class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">1</span>
+                                            class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">{{ $loop->index + 1 }}</span>
                                         {{ $curriculum->title }}
                                     </span>
                                     <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
@@ -228,8 +230,8 @@
                                     </svg>
                                 </button>
                             </h2>
-                            <div id="accordion-collapse-body-1" class="hidden"
-                                aria-labelledby="accordion-collapse-heading-1">
+                            <div id="{{ 'accordion-collapse-body-' . $loop->index }}" class="hidden"
+                                aria-labelledby="{{ 'accordion-collapse-heading-' . $loop->index }}">
                                 <div class="p-5 border-t border-gray-200 dark:border-gray-700">
                                     @forelse ($curriculum->getAllMaterials() as $material)
                                         @if ($material->getTable() === 'material_videos')
@@ -252,7 +254,7 @@
                                                     </a>
                                                 </div>
                                                 <span
-                                                    class="text-sm text-gray-400">{{ date('H:i:s', $material->getDuration()) }}</span>
+                                                    class="text-sm text-gray-400">{{ $material->video ? date('H:i:s', $material->getDuration()) : '' }}</span>
                                             </div>
                                         @else
                                             {{-- Worksheet --}}
@@ -292,10 +294,9 @@
 
                 <div class="relative">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {{-- <x-card.course />
-                        <x-card.course />
-                        <x-card.course />
-                        <x-card.course /> --}}
+                        @foreach ($course->similar() as $course)
+                            <x-card.course-card :course="$course" />
+                        @endforeach
                     </div>
                 </div>
 

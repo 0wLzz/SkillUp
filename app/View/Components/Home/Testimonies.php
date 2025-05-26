@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class course.category-bar extends Component
+class Testimonies extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class course.category-bar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.course.category-bar');
+        return view('components.home.testimonies');
     }
 }

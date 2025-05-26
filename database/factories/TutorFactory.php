@@ -2,6 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
+use App\Models\Curriculum;
+use App\Models\MaterialVideo;
+use App\Models\MaterialWorksheet;
+use App\Models\Tutor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,8 +24,9 @@ class TutorFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'password' => '123'
+            'occupation' => fake()->jobTitle(),
             // 'email_verified_at' => now(),
+            'password' => '123',
         ];
     }
 }

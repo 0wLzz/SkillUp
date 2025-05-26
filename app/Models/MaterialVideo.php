@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use FFMpeg\FFProbe;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
 
 class MaterialVideo extends Model
 {
+    use HasFactory;
     protected $guarded = ['id'];
     protected $table = 'material_videos';
 

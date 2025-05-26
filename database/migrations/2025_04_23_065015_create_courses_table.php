@@ -20,12 +20,11 @@ return new class extends Migration
             $table->text('description')->nullable(); // Subjudul, bisa kosong
             $table->bigInteger('price')->nullable(); // Harga, bisa kosong
 
-            $table->boolean('is_featured')->default(false); // Yang di tunjukkan ke halaman utama
             $table->string('thumbnail')->nullable(); // Path gambar thumbnail
+            $table->boolean('is_featured')->default(false); // Yang di tunjukkan ke halaman utama
 
             // Bakal Di Hapus
-            $table->integer('videos')->default(0); // Jumlah video, default 0
-            $table->integer('students')->default(0); // Jumlah siswa, default 0
+
             $table->timestamps(); // created_at & updated_at otomatis
         });
     }

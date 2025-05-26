@@ -24,22 +24,22 @@
         </div>
 
         <div class="grid grid-cols-4 gap-8 mb-8">
-
-            <div
-                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="{{ asset('assets/Carousel2.jpg') }}" alt="" />
-                </a>
-                <div class="p-5">
+            @foreach ($tutors as $tutor)
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Andrew Tate
-                        </h5>
+                        <img class="rounded-t-lg" src="{{ asset('assets/Carousel2.jpg') }}" alt="" />
                     </a>
-                    <p class="mb-3 font-normal text-gray-400">Andrew Tate, menjabat sebagai ketua
-                        dari organisasi di kampus Binus</p>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {{ $tutor->name }}
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-normal text-gray-400">{{ $tutor->occupation }}</p>
+                    </div>
                 </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 
