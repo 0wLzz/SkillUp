@@ -88,17 +88,41 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('home_page');
+        $guards = ['admin', 'tutor', 'web'];
+
+        foreach ($guards as $guard) {
+            if (Auth::guard($guard)->attempt($credentials)) {
+                $request->session()->regenerate();
+
+                return match ($guard) {
+                    'admin' => redirect()->route('admin_page'),
+                    'tutor' => redirect()->route('tutor_dashboard'),
+                    'web'   => redirect()->route('home_page'),
+                    default => redirect()->back()->with(['error' => 'Email atau password salah'])
+                };
+            }
         }
 
-        return back()->withErrors(['email' => 'Email atau password salah']);
+
+        return back()->with(['error' => 'Email atau password salah']);
     }
 
     // Proses logout
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect()->route('login_page');
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+        return redirect()->route('login_page')->with('success', 'Logout berhasil!');
+    }
+
+    public function logout_admin(Request $request)
+    {
+        Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+        return redirect()->route('login_page')->with('success', 'Logout berhasil!');
     }
 }

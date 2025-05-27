@@ -40,9 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'student' => [
+
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'students',
+            'provider' => 'admins',
         ],
 
         'tutor' => [
@@ -75,10 +76,17 @@ return [
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'database',
+            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+            'table' => 'admins',
+        ],
+
+        'tutors' => [
+            'driver' => 'database',
+            'model' => env('AUTH_MODEL', App\Models\Tutor::class),
+            'table' => 'tutors',
+        ],
     ],
 
     /*

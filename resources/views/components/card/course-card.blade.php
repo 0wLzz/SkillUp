@@ -1,7 +1,9 @@
 <div class="mx-auto max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
     {{-- Card --}}
     <a href="{{ route('course_detail', $course) }}">
-        <img class="rounded-t-lg" src="{{ asset('assets/AboutUs.png') }}" alt="" />
+        <img class="rounded-t-lg"
+            src="{{ $course->image ? asset('storage/' . $course->image) : asset('assets/default.jpg') }}"
+            alt="" />
     </a>
     <div class="p-5">
         <a href="{{ route('course_detail', $course) }}">

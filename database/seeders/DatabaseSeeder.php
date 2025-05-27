@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Tutor;
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Course::factory(5)->create();
+        Admin::factory(1)->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',

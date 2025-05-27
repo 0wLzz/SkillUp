@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
 use App\Models\Tutor;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Models\CoursePurchase;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -22,6 +26,17 @@ class UserController extends Controller
 
     public function course_detail(Course $course)
     {
-        return view('courses.detail', compact('course'));
+        $is_purchased = CoursePurchase::where('course_id', $course->id)
+            ->where('user_id', Auth::guard('web')->user()->id)
+            ->exists();
+
+
+        return view('courses.detail', compact(['course', 'is_purchased']));
+    }
+
+    public function edit_profile()
+    {
+        $user = Auth::guard('web')->user();
+        return view('users.editProfile', compact('user'));
     }
 }

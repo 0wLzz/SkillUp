@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained();
             $table->foreignId('user_id')->constrained(); // pembeli
-            $table->integer('price'); // harga saat dibeli
-            $table->timestamps(); // created_at = waktu pembelian
             $table->string('payment_proof')->nullable(); // untuk path file
+            $table->timestamps(); // created_at = waktu pembelian
             $table->boolean('is_verified')->default(false); // status verifikasi
         });
     }

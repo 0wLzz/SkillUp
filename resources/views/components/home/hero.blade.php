@@ -21,12 +21,12 @@
                 <div class="relative w-full h-full">
                     <!-- Item 1 -->
                     <div class="duration-700 ease-in-out" data-carousel-item="active">
-                        <img src="{{ asset('assets/Carousel2.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
+                        <img src="{{ asset('assets/default.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
                     </div>
 
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/Carousel2.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
+                        <img src="{{ asset('assets/default.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
                     </div>
                 </div>
 

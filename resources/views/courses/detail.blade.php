@@ -129,10 +129,18 @@
                                     class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">15%
                                     OFF</span>
                             </div>
-                            <a href="{{ route('course_payment') }}"
-                                class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300">
-                                Enroll Now
-                            </a>
+                            @if ($is_purchased)
+                                <button
+                                    class="cursor-not-allowed block w-full text-center bg-blue-400  text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300"
+                                    disabled>
+                                    Bought
+                                </button>
+                            @else
+                                <a href="{{ route('course.payment', $course) }}"
+                                    class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-300">
+                                    Enroll Now
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -211,25 +219,44 @@
                 <div id="accordion-collapse" data-accordion="collapse">
                     @foreach ($course->curriculums as $curriculum)
                         <div class="border border-gray-200 dark:border-gray-700 rounded-b-lg overflow-hidden">
-                            <h2 id="{{ 'accordion-collapse-heading-' . $loop->index }}">
-                                <button type="button"
-                                    class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 gap-3"
-                                    data-accordion-target="{{ '#accordion-collapse-body-' . $loop->index }}"
-                                    aria-expanded="true"
-                                    aria-controls="
+                            @if ($is_purchased)
+                                <h2 id="{{ 'accordion-collapse-heading-' . $loop->index }}">
+                                    <button type="button"
+                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-white bg-gray-800 hover:bg-gray-700 gap-3"
+                                        data-accordion-target="{{ '#accordion-collapse-body-' . $loop->index }}"
+                                        aria-expanded="true"
+                                        aria-controls="
                                     {{ 'accordion-collapse-body-' . $loop->index }}">
-                                    <span class="flex items-center">
-                                        <span
-                                            class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">{{ $loop->index + 1 }}</span>
-                                        {{ $curriculum->title }}
-                                    </span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M9 5 5 1 1 5" />
-                                    </svg>
-                                </button>
-                            </h2>
+                                        <span class="flex items-center">
+                                            <span
+                                                class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">{{ $loop->index + 1 }}</span>
+                                            {{ $curriculum->title }}
+                                        </span>
+                                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 10 6">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                                        </svg>
+                                    </button>
+                                </h2>
+                            @else
+                                <h2 id="{{ 'accordion-collapse-heading-' . $loop->index }}">
+                                    <button type="button"
+                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-white bg-gray-800 gap-3">
+                                        <span class="flex items-center">
+                                            <span
+                                                class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full mr-3">{{ $loop->index + 1 }}</span>
+                                            {{ $curriculum->title }}
+                                        </span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                        </svg>
+                                    </button>
+                                </h2>
+                            @endif
                             <div id="{{ 'accordion-collapse-body-' . $loop->index }}" class="hidden"
                                 aria-labelledby="{{ 'accordion-collapse-heading-' . $loop->index }}">
                                 <div class="p-5 border-t border-gray-200 dark:border-gray-700">

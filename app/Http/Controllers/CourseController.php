@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\CoursePurchase;
 use App\Models\MaterialVideo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
@@ -117,5 +119,28 @@ class CourseController extends Controller
     public function course_video(MaterialVideo $video)
     {
         return view('courses.videoPage', compact('video'));
+    }
+
+    // Menampilan halaman pembayaran
+    public function course_payment(Course $course)
+    {
+        return view('courses.payment', compact('course'));
+    }
+
+    public function buyCourse(Request $request, Course $course)
+    {
+        $request->validate([
+            'card_number' => 'required|digits_between:13,19',
+            'date' => 'required|date_format:m/y',
+            'cvc' => 'required|digits_between:3,4',
+            'postal_code' => 'required|string|max:10',
+            'payment_method' => 'required'
+        ]);
+
+        Auth::guard('web')->user()->purchases()->create([
+            'course_id' => $course->id,
+        ]);
+
+        return redirect()->route('home_page')->with('show_payment_modal', true);
     }
 }
