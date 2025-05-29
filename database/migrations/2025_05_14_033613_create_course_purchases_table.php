@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('course_purchases', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_id')->constrained();
-            $table->foreignId('user_id')->constrained(); // pembeli
+            $table->foreignId('course_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate(); // pembeli
             $table->string('payment_proof')->nullable(); // untuk path file
             $table->timestamps(); // created_at = waktu pembelian
             $table->boolean('is_verified')->default(false); // status verifikasi

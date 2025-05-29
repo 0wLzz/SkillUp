@@ -82,7 +82,8 @@
 
                         <div class="flex flex-col">
                             <span class="text-2xl text-white font-bold mb-2">Tanggal Lahir</span>
-                            <input id="dob" name="dob" class="border-3 border-gray-600 p-4 text-white">
+                            <input id="dob" name="dob" class="border-3 border-gray-600 p-4 text-white"
+                                value="{{ $user->dob }}">
                             @error('dob')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -102,6 +103,16 @@
                         <div class="flex flex-col">
                             <span class="text-2xl text-white font-bold mb-2">Portofolio</span>
                             <input type="file" name="portofolio" class="border-3 border-gray-600 p-4 text-white">
+                            @error('portofolio')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="flex flex-col col-span-2">
+                            <span class="text-2xl text-white font-bold mb-2">Description</span>
+                            <textarea name="description" class="border-3 border-gray-600 p-4 text-white">
+                                {{ $user->description }}
+                            </textarea>
                             @error('portofolio')
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror

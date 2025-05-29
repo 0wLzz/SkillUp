@@ -23,7 +23,12 @@ class AdminController extends Controller
         $totalTutor = Tutor::all()->count();
         $totalCategories = Category::all()->count();
 
-        return view('admin.dashboard', compact(['totalCourse', 'totalTransaction', 'totalStudents', 'totalCategories', 'totalTutor']));
+        $totalEarnings  = 0;
+        foreach (CoursePurchase::all() as $purchase) {
+            $totalEarnings += $purchase->course->price * 0.2;
+        }
+
+        return view('admin.dashboard', compact(['totalCourse', 'totalTransaction', 'totalStudents', 'totalCategories', 'totalTutor', 'totalEarnings']));
     }
 
     public function subscription()

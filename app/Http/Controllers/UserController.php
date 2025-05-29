@@ -22,15 +22,17 @@ class UserController extends Controller
 
     public function course_page(Request $request)
     {
-        $courses = Course::orderBy('created_at', 'DESC')->paginate(8);
-        $featured = Course::where('is_featured', true)->get();
-
+        $query = Course::orderBy('created_at', 'DESC');
         if ($request->filled('search')) {
-            $courses = $courses->where('title', 'like', '%' . $request->search . '%');
+            $query->where('title', 'like', '%' . $request->search . '%');
         }
+
+        $courses = $query->paginate(8);
+        $featured = Course::where('is_featured', true)->take(6)->get();
 
         return view('courses', compact(['courses', 'featured']));
     }
+
 
     public function course_detail(Course $course)
     {

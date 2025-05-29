@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\CoursePurchase;
 use App\Models\Curriculum;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +18,29 @@ class TutorController extends Controller
     public function index()
     {
         $courses = Course::where('tutor_id', Auth::guard('tutor')->user()->id)->get();
-        return view('tutor.index', ['ownedCourse' => $courses]);
+
+        $totalEarnings  = 0;
+        foreach ($courses as $course) {
+            $purchases = $course->purchases;
+            foreach ($purchases as $purchase) {
+                $totalEarnings += $purchase->course->price * 0.8;
+            }
+        }
+
+        $lastMonthSameDay = Carbon::now()->subMonth()->format('Y-M ');
+
+        $tutorId = Auth::guard('tutor')->user()->id;
+
+        $totalPurchases = CoursePurchase::whereHas('course', function ($query) use ($tutorId) {
+            $query->where('tutor_id', $tutorId);
+        })->count();
+
+        return view('tutor.index', [
+            'ownedCourse' => $courses,
+            'totalEarnings' => $totalEarnings,
+            'lastPayoutDate' => $lastMonthSameDay,
+            'totalPurchases' => $totalPurchases
+        ]);
     }
 
     public function editCourse(Course $course)
@@ -50,7 +74,8 @@ class TutorController extends Controller
                 Rule::date()->beforeToday(),
             ],
             'instance' => 'nullable|string',
-            'education' => 'nullable|string'
+            'education' => 'nullable|string',
+            'description' => 'nullable|string'
         ]);
 
         $path_image = $user->image ?? null;
@@ -78,7 +103,8 @@ class TutorController extends Controller
             'handphone' => $request->handphone,
             'dob' => $request->dob,
             'instance' => $request->instance,
-            'education' => $request->education
+            'education' => $request->education,
+            'description' => $request->description
         ]);
 
         return redirect()->back()->with('success', 'Profile berhasil diperbarui!');

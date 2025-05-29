@@ -157,36 +157,26 @@
 
                 <!-- Right Column -->
                 <div class="space-y-6">
-                    <!-- Profile Card -->
-                    <div class="bg-gray-800 rounded-lg p-6">
-                        <div class="flex flex-col items-center mb-4">
-                            <img src="{{ asset('assets/AboutUs.png') }}"
-                                class="w-24 h-24 rounded-full object-cover mb-3 border-2 border-blue-500">
-                            <h2 class="text-xl font-semibold text-white">{{ Auth::guard('tutor')->user()->name }} </h2>
-                        </div>
+                    <!-- Earnings Card -->
+                    <div class="bg-gray-800 rounded-lg p-6 shadow-md">
 
-                        <div class="space-y-3 mb-5">
+                        <div class="space-y-4 text-center mb-2">
                             <div>
-                                <p class="text-gray-400 text-sm">Occupation</p>
-                                <p class="text-white">{{ Auth::guard('tutor')->user()->occupation }} </p>
+                                <p class="text-gray-400 text-sm">Total Earnings</p>
+                                <p class="text-2xl font-bold text-green-400">Rp
+                                    {{ number_format($totalEarnings ?? 0, 0, ',', '.') }}</p>
                             </div>
                             <div>
-                                <p class="text-gray-400 text-sm">Email</p>
-                                <p class="text-white truncate">{{ Auth::guard('tutor')->user()->email }} </p>
+                                <p class="text-gray-400 text-sm">Last Payout</p>
+                                <p class="text-white">{{ $lastPayoutDate ?? '-' }}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Courses Sold</p>
+                                <p class="text-white font-semibold">
+                                    {{ $totalPurchases }}
+                                </p>
                             </div>
                         </div>
-
-                        <button
-                            class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
-                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
-                                    d="M8 7V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1M3 18v-7a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                            </svg>
-
-                            View Earnings
-                        </button>
                     </div>
 
                     <!-- Questions Card -->
