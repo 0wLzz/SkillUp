@@ -10,12 +10,6 @@
     </div>
 
     <div class="max-w-screen-xl mx-auto p-4 bg-white rounded-xl mt-4 space-y-4">
-        @if (session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">
-                {{ session('success') }}
-            </div>
-        @endif
-
         @forelse ($categories as $category)
             <div class="flex items-center justify-center p-4 gap-4">
                 <form class="flex gap-8" action="{{ route('category.update', $category) }}" method="POST">

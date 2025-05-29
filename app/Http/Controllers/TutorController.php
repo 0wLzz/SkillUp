@@ -15,8 +15,8 @@ class TutorController extends Controller
 
     public function index()
     {
-        $course = Course::all();
-        return view('tutor.index', ['ownedCourse' => $course]);
+        $courses = Course::where('tutor_id', Auth::guard('tutor')->user()->id)->get();
+        return view('tutor.index', ['ownedCourse' => $courses]);
     }
 
     public function editCourse(Course $course)

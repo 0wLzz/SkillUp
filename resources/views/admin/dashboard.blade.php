@@ -13,7 +13,7 @@
                     d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
             </svg>
             <span>Courses</span>
-            <span class="font-bold">4</span>
+            <span class="font-bold">{{ $totalCourse }}</span>
         </div>
 
         <div class="flex flex-col">
@@ -23,7 +23,7 @@
                     d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
             </svg>
             <span>Transactions</span>
-            <span class="font-bold">4</span>
+            <span class="font-bold"> {{ $totalTransaction }}</span>
         </div>
 
         <div class="flex flex-col">
@@ -33,7 +33,7 @@
                     d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
             </svg>
             <span>Students</span>
-            <span class="font-bold">4</span>
+            <span class="font-bold"> {{ $totalStudents }} </span>
         </div>
 
         <div class="flex flex-col">
@@ -44,7 +44,7 @@
             </svg>
 
             <span>Teachers</span>
-            <span class="font-bold">4</span>
+            <span class="font-bold">{{ $totalTutor }}</span>
         </div>
 
         <div class="flex flex-col">
@@ -56,7 +56,7 @@
             </svg>
 
             <span>Categories</span>
-            <span class="font-bold">4</span>
+            <span class="font-bold"> {{ $totalCategories }}</span>
         </div>
     </div>
 </x-admin_layout>

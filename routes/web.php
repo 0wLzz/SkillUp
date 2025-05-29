@@ -14,8 +14,8 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 
 // Tutor
 Route::middleware('auth:tutor')->group(function () {
-    Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
     Route::resource('/tutor/courses', CourseController::class);
+    Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
     Route::get('/tutor/editProfile', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
     Route::put('/tutor/editProfile', [TutorController::class, 'update_profile'])->name('tutor.profile.update');
 
@@ -32,10 +32,14 @@ Route::middleware('auth:tutor')->group(function () {
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin_page');
     Route::get('/admin/subscription', [AdminController::class, 'subscription'])->name('manage_subscription_page');
+
     Route::get('/admin/tutors', [AdminController::class, 'tutor'])->name('manage_tutors_page');
     Route::delete('/admin/tutors/delete/{id}', [AdminController::class, 'delete_tutor'])->name('delete_tutor');
+
     Route::get('/admin/courses/select', [AdminController::class, 'selectPage'])->name('admin.course.selectPage');
     Route::patch('/admin/courses/select/{course}', [AdminController::class, 'selectFeatured'])->name('admin.course.select');
+    Route::delete('/admin/courses/{course}/delete', [AdminController::class, 'delete_select_course'])->name('admin.course.delete');
+
     Route::resource('/admin/category', CategoryController::class);
 
     // Request tutor
