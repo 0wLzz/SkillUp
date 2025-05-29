@@ -11,13 +11,5 @@ class Tutor extends Authenticatable
 {
     use SoftDeletes, HasFactory, Notifiable;
 
-    protected $guarded = 'admin';
-
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'occupation',
-        'image'
-    ];
+    protected $guarded = ['id'];
 }

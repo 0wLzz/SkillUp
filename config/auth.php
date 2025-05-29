@@ -77,13 +77,13 @@ return [
         ],
 
         'admins' => [
-            'driver' => 'database',
+            'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Admin::class),
             'table' => 'admins',
         ],
 
         'tutors' => [
-            'driver' => 'database',
+            'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Tutor::class),
             'table' => 'tutors',
         ],

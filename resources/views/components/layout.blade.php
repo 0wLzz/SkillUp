@@ -12,6 +12,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 {{-- Bisa menggunakan HeroIcons --}}
@@ -28,7 +30,7 @@
                         class="text-white font-medium rounded-lg hover:text-blue-400">Courses</a>
                 </div>
                 <div class="flex items-center w-1/2">
-                    <form>
+                    <form method="GET" action="{{ route('course.search') }}">
                         <label for="default-search"
                             class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                         <div class="relative">
@@ -39,7 +41,7 @@
                                         stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
                             </div>
-                            <input type="search" id="default-search"
+                            <input name="search" type="search" id="default-search"
                                 class="flex w-5xl p-4 ps-10 text-sm border rounded-full focus:ring-blue-500  bg-gray-700 border-gray-600 placeholder-gray-400 text-white  focus:border-blue-500"
                                 placeholder="Search Courses..." required />
                             <button type="submit"
@@ -69,10 +71,17 @@
                             </div>
                             <ul class="py-2" aria-labelledby="user-menu-button">
                                 <li>
-                                    <a href="{{ route('user.profile') }}"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                                        Edit Profile
-                                    </a>
+                                    @if (Auth::guard('web')->user())
+                                        <a href="{{ route('user.profile') }}"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                            Edit Profile
+                                        </a>
+                                    @else
+                                        <a href="{{ route('tutor.profile.edit') }}"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                            Edit Profile
+                                        </a>
+                                    @endif
                                 </li>
                                 <li>
                                     <form action="{{ route('logout') }}" method="POST"

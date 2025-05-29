@@ -59,7 +59,7 @@
                     </div>
 
                     <!-- Bottom Left Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-2 gap-6">
                         <!-- Meeting Card -->
                         <div class="bg-gray-800 rounded-lg p-6">
                             <h2 class="text-xl font-semibold text-white mb-4">Upcoming Meeting</h2>
@@ -119,6 +119,39 @@
                                 </table>
                             </div>
                         </div>
+
+                        <!-- Forum Card -->
+                        <div class="bg-gray-800 rounded-lg p-6 col-span-2">
+                            <h2 class="text-xl font-semibold text-white mb-4">Forum Discussions</h2>
+                            <ul class="divide-y divide-gray-700">
+                                <!-- Forum Post -->
+                                <li class="py-4 flex items-start gap-4">
+                                    <img class="w-10 h-10 rounded-full object-cover"
+                                        src="https://i.pravatar.cc/40?img=3" alt="User Avatar">
+                                    <div class="flex-1">
+                                        <h3 class="text-white font-semibold">How to improve my communication skill?</h3>
+                                        <p class="text-gray-400 text-sm mt-1">Started by <span
+                                                class="font-medium text-gray-300">johndoe</span> • 2 hours ago</p>
+                                    </div>
+                                    <div class="text-sm text-gray-400 whitespace-nowrap">14 replies</div>
+                                </li>
+
+                                <!-- Forum Post -->
+                                <li class="py-4 flex items-start gap-4">
+                                    <img class="w-10 h-10 rounded-full object-cover"
+                                        src="https://i.pravatar.cc/40?img=5" alt="User Avatar">
+                                    <div class="flex-1">
+                                        <h3 class="text-white font-semibold">Best practices for presenting?</h3>
+                                        <p class="text-gray-400 text-sm mt-1">Started by <span
+                                                class="font-medium text-gray-300">janesmith</span> • 5 hours ago</p>
+                                    </div>
+                                    <div class="text-sm text-gray-400 whitespace-nowrap">8 replies</div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
                     </div>
                 </div>
 
@@ -129,32 +162,30 @@
                         <div class="flex flex-col items-center mb-4">
                             <img src="{{ asset('assets/AboutUs.png') }}"
                                 class="w-24 h-24 rounded-full object-cover mb-3 border-2 border-blue-500">
-                            <h2 class="text-xl font-semibold text-white">John Doe</h2>
+                            <h2 class="text-xl font-semibold text-white">{{ Auth::guard('tutor')->user()->name }} </h2>
                         </div>
 
                         <div class="space-y-3 mb-5">
                             <div>
                                 <p class="text-gray-400 text-sm">Occupation</p>
-                                <p class="text-white">Senior Developer</p>
+                                <p class="text-white">{{ Auth::guard('tutor')->user()->occupation }} </p>
                             </div>
                             <div>
                                 <p class="text-gray-400 text-sm">Email</p>
-                                <p class="text-white truncate">john.doe@example.com</p>
-                            </div>
-                            <div>
-                                <p class="text-gray-400 text-sm">Telephone</p>
-                                <p class="text-white">+1 (555) 123-4567</p>
+                                <p class="text-white truncate">{{ Auth::guard('tutor')->user()->email }} </p>
                             </div>
                         </div>
 
                         <button
                             class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                    d="M8 7V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1M3 18v-7a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
                             </svg>
-                            Edit Profile
+
+                            View Earnings
                         </button>
                     </div>
 

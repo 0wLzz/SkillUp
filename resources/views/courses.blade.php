@@ -22,44 +22,10 @@
                     Featured Courses
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @foreach ($courses as $course)
-                        @if ($course->is_featured)
-                            <x-card.course-card :course="$course" />
-                        @endif
+                    @foreach ($featured as $feature)
+                        <x-card.course-card :course="$feature" />
                     @endforeach
                 </div>
-            </div>
-
-            <!-- Category Carousel -->
-            <div
-                class="mb-16 items-center relative w-full text-center bg-gray-900 rounded drop-shadow-xl text-gray-500 sm:text-lg dark:text-gray-400">
-
-                <!-- Category Display -->
-                <div class="relative h-16 flex items-center justify-center text-2xl font-bold gap-24">
-                    <span id="category-label-1" class="text-blue-400">Leadership</span>
-                    <span id="category-label-2" class="">Communication</span>
-                    <span id="category-label-3" class="">Problem Solving</span>
-                    <span id="category-label-4" class="">Time Managment</span>
-                </div>
-
-                <!-- Slider controls -->
-                <button id="prev-category" type="button"
-                    class="absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2">
-                    <svg class="w-4 h-4 text-white dark:text-gray-400 rtl:rotate-180" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 1 1 5l4 4" />
-                    </svg>
-                </button>
-
-                <button id="next-category" type="button"
-                    class="absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2">
-                    <svg class="w-4 h-4 text-gray-400 rtl:rotate-180" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 9 4-4-4-4" />
-                    </svg>
-                </button>
             </div>
 
             <!-- All Courses -->
@@ -83,19 +49,22 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="grid grid-cols-4 gap-8">
                     @forelse ($courses as $course)
-                        @if (!$course->is_feautured)
-                            <x-card.course-card :course="$course" />
-                        @endif
+                        <x-card.course-card :course="$course" />
                     @empty
+                        <div
+                            class="flex flex-col items-center justify-center py-12 text-center text-gray-400 col-span-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4 text-gray-300" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                            </svg>
+                            <p class="text-lg font-semibold">No courses found</p>
+                            <p class="text-sm text-gray-500 mt-1">Try adjusting your search or check back later.</p>
+                        </div>
                     @endforelse
-                </div>
 
-                <div class="mt-12 flex justify-center">
-                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-lg transition-colors">
-                        Load More Courses
-                    </button>
                 </div>
             </div>
         </div>
@@ -118,84 +87,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const categories = [{
-                    id: 1,
-                    name: "Leadership",
-                    color: "bg-blue-600"
-                },
-                {
-                    id: 2,
-                    name: "Communication",
-                    color: "bg-purple-600"
-                },
-                {
-                    id: 3,
-                    name: "Problem Solving",
-                    color: "bg-green-600"
-                },
-                {
-                    id: 4,
-                    name: "Time Management",
-                    color: "bg-yellow-600"
-                },
-                {
-                    id: 5,
-                    name: "Creativity",
-                    color: "bg-red-600"
-                },
-                {
-                    id: 6,
-                    name: "Teamwork",
-                    color: "bg-indigo-600"
-                },
-                {
-                    id: 7,
-                    name: "Critical Thinking",
-                    color: "bg-pink-600"
-                },
-                {
-                    id: 8,
-                    name: "Adaptability",
-                    color: "bg-teal-600"
-                }
-            ];
-
-            const slider = document.getElementById('category-slider');
-            const categoryWidth = 200; // Adjust based on your design
-
-            // Populate categories
-            categories.forEach(category => {
-                const categoryEl = document.createElement('div');
-                categoryEl.className = `flex-shrink-0 px-6 py-4 mx-2 rounded-xl cursor-pointer 
-                                        transition-all hover:scale-105 ${category.color} text-white 
-                                        font-semibold text-center w-48`;
-                categoryEl.textContent = category.name;
-                categoryEl.onclick = () => filterCourses(category.id);
-                slider.appendChild(categoryEl);
-            });
-
-            let currentPosition = 0;
-            const prevBtn = document.getElementById('prev-category');
-            const nextBtn = document.getElementById('next-category');
-
-            prevBtn.addEventListener('click', () => {
-                currentPosition = Math.min(currentPosition + categoryWidth * 2, 0);
-                slider.style.transform = `translateX(${currentPosition}px)`;
-            });
-
-            nextBtn.addEventListener('click', () => {
-                const maxPosition = -(categories.length * categoryWidth - window.innerWidth + 100);
-                currentPosition = Math.max(currentPosition - categoryWidth * 2, maxPosition);
-                slider.style.transform = `translateX(${currentPosition}px)`;
-            });
-
-            function filterCourses(categoryId) {
-                console.log(`Filtering by category: ${categoryId}`);
-                // Add your filtering logic here
-            }
-        });
-    </script>
 </x-layout>

@@ -65,7 +65,7 @@ class CourseController extends Controller
 
         $path = $course->thumbnail;
         if ($request->hasFile('thumbnail')) {
-            Storage::delete($course->thumbnail);
+            Storage::disk('public')->delete($course->thumbnail);
             $path = $request->file('thumbnail')->store('thumbnails', 'public');
         }
 
@@ -129,13 +129,16 @@ class CourseController extends Controller
 
     public function buyCourse(Request $request, Course $course)
     {
-        $request->validate([
-            'card_number' => 'required|digits_between:13,19',
-            'date' => 'required|date_format:m/y',
-            'cvc' => 'required|digits_between:3,4',
-            'postal_code' => 'required|string|max:10',
-            'payment_method' => 'required'
-        ]);
+        if (!$request->payment_method == 'qris') {
+            $request->validate([
+                'card_number' => 'required|digits_between:13,19',
+                'payment_method' => 'required',
+                'date' => 'required|date_format:m/y',
+                'cvc' => 'required|digits_between:3,4',
+                'postal_code' => 'required|string|max:10',
+                'payment_method' => 'required'
+            ]);
+        }
 
         Auth::guard('web')->user()->purchases()->create([
             'course_id' => $course->id,

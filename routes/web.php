@@ -17,7 +17,8 @@ use App\Http\Controllers\StudentController;
 Route::middleware('auth:tutor')->group(function () {
     Route::get('/tutor', [TutorController::class, 'index'])->name('tutor_dashboard');
     Route::resource('/tutor/courses', CourseController::class);
-    Route::get('/tutor/editProfile/{tutor}', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
+    Route::get('/tutor/editProfile', [TutorController::class, 'editProfile'])->name('tutor.profile.edit');
+    Route::put('/tutor/editProfile', [TutorController::class, 'update_profile'])->name('tutor.profile.update');
 
     // Curriculum Tutor
     Route::post('/tutor/curriculums/store/{course}', [CurriculumController::class, 'store'])->name('tutor.curriculum.store');
@@ -40,8 +41,8 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout_admin');
 });
 
-
-Route::middleware('guest')->group(function () {
+// Non Login Users
+Route::middleware('redirect:admin,tutor')->group(function () {
     // Request tutor
     Route::get('/admin/tutors/requests', [TutorRequestController::class, 'index'])->name('tutor_requests.index');
     Route::put('/admin/tutors/requests/{id}/approve', [TutorRequestController::class, 'approve'])->name('tutor_requests.approve');
@@ -60,25 +61,29 @@ Route::middleware('guest')->group(function () {
     Route::post('/register/tutor', [AuthController::class, 'storeTutor'])->name('register_tutor.store');
 });
 
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-
-
-// Public Pages
-Route::get('/', [UserController::class, 'index'])->name('home_page');
-Route::get('/courses', [UserController::class, 'course_page'])->name('course_page');
-Route::get('/courses/detail/{course}', [UserController::class, 'course_detail'])->name('course_detail');
-
-Route::get('/earnings', [EarningController::class, 'index'])->name('earnings');
-Route::get('/earnings-data/{year}', [EarningController::class, 'getEarningsData']);
-
 // Student
 Route::middleware('auth:web')->group(function () {
     Route::get('/courses/payment/{course}', [CourseController::class, 'course_payment'])->name('course.payment');
     Route::post('/courses/payment/{course}', [CourseController::class, 'buyCourse'])->name('course.payment');
     Route::get('/courses/video/{video}', [CourseController::class, 'course_video'])->name('course.video');
     Route::get('/profile', [UserController::class, 'edit_profile'])->name('user.profile');
+    Route::put('/profile', [UserController::class, 'update_profile'])->name('user.profile.update');
 
     // Route::get('/student/purchase', [StudentController::class, 'index'])->name('student.purchases');
     // Route::post('/student/purchase/{id}/upload', [StudentController::class, 'uploadPayment'])->name('student.uploadPayment');
 });
+
+// All Role Page
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+// Public Pages
+Route::middleware(['auth:web', 'guest'])->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('home_page');
+    Route::get('/courses', [UserController::class, 'course_page'])->name('course_page');
+    Route::get('/courses/detail/{course}', [UserController::class, 'course_detail'])->name('course_detail');
+    Route::get('/course/search', [UserController::class, 'course_page'])->name('course.search');
+});
+
+
+Route::get('/earnings', [EarningController::class, 'index'])->name('earnings');
+Route::get('/earnings-data/{year}', [EarningController::class, 'getEarningsData']);
