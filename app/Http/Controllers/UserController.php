@@ -46,7 +46,7 @@ class UserController extends Controller
 
     public function tutor_detail(Tutor $tutor)
     {
-        $ownedCourse
+        $ownedCourse = Course::where('tutor_id', $tutor->id)->get();
 
         return view('users.tutorDetails', compact(['tutor', 'ownedCourse']));
     }

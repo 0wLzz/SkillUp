@@ -27,7 +27,7 @@
             @foreach ($tutors as $tutor)
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
+                    <a href="{{route('tutor_detail', $tutor)}}">
                         <img class="rounded-t-lg" src="{{ asset('assets/Carousel2.jpg') }}" alt="" />
                     </a>
                     <div class="p-5">
