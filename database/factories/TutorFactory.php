@@ -23,6 +23,7 @@ class TutorFactory extends Factory
             'occupation' => fake()->jobTitle(),
             // 'email_verified_at' => now(),
             'password' => Hash::make('password'),
+            'description' => fake()->text()
         ];
     }
 }

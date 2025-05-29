@@ -44,6 +44,13 @@ class UserController extends Controller
         return view('courses.detail', compact(['course', 'is_purchased']));
     }
 
+    public function tutor_detail(Tutor $tutor)
+    {
+        $ownedCourse
+
+        return view('users.tutorDetails', compact(['tutor', 'ownedCourse']));
+    }
+
     public function edit_profile()
     {
         $user = Auth::guard('web')->user();

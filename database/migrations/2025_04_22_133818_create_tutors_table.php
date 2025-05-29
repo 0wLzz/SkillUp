@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('latest_education')->nullable();
             $table->bigInteger('handphone')->nullable();
             $table->string('password');
+            $table->text('description')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

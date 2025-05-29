@@ -80,6 +80,7 @@ Route::middleware(RedirectIfAuthenticated::class . ':admin,tutor')->group(functi
     Route::get('/courses', [UserController::class, 'course_page'])->name('course_page');
     Route::get('/courses/detail/{course}', [UserController::class, 'course_detail'])->name('course_detail');
     Route::get('/course/search', [UserController::class, 'course_page'])->name('course.search');
+    Route::get('/tutor/detail/{tutor}', [UserController::class, 'tutor_detail'])->name('tutor_detail');
 });
 
 Route::get('/earnings', [EarningController::class, 'index'])->name('earnings');
