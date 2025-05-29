@@ -103,13 +103,19 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         // Delete All Curriculums File and Materials
-        $materials = $course->curriculums->getAllMaterials();
+        $materials = collect();
+
+        foreach ($course->curriculums as $curriculum) {
+            $materials = $materials->concat($curriculum->getAllMaterials());
+        }
 
         foreach ($materials as $material) {
             if ($material->getTable() == 'material_videos') {
-                Storage::disk('public')->delete($material->video);
+                $path = $material->video ?? null;
+                ($path != null) ? Storage::disk('public')->delete($material->video) : '';
             } else {
-                Storage::disk('public')->delete($material->worksheet);
+                $path = $material->worksheet ?? null;
+                ($path != null) ? Storage::disk('public')->delete($material->worksheet) : '';
             }
         }
 

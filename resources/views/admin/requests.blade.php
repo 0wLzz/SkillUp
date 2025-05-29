@@ -6,12 +6,6 @@
     </div>
 
     <div class="max-w-screen-xl mx-auto p-4 bg-white rounded-xl mt-6 space-y-4">
-        @if (session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded">
-                {{ session('success') }}
-            </div>
-        @endif
-
         @forelse ($requests as $request)
             <div class="grid grid-cols-6 rounded p-4 space-y-2 w-full text-wrap">
                 <p>
