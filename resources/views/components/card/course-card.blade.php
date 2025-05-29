@@ -9,7 +9,7 @@
         <a href="{{ route('course_detail', $course) }}">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $course->title }}</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Nama</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $course->subtitle }}</p>
 
         <div class=" grid grid-cols-3 place-items-center">
             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"

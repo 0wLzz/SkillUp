@@ -27,11 +27,11 @@
             @foreach ($tutors as $tutor)
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                    <a href="{{route('tutor_detail', $tutor)}}">
+                    <a href="{{ route('tutor_detail', $tutor) }}">
                         <img class="rounded-t-lg" src="{{ asset('assets/Carousel2.jpg') }}" alt="" />
                     </a>
                     <div class="p-5">
-                        <a href="{{route('tutor_detail', $tutor)}}">
+                        <a href="{{ route('tutor_detail', $tutor) }}">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {{ $tutor->name }}
                             </h5>

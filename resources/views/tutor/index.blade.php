@@ -322,8 +322,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M12 2a10 10 0 100 20 10 10 0 000-20z" />
                             </svg>
-                            <p class="text-lg font-semibold">No courses found</p>
-                            <p class="text-sm text-gray-500 mt-1">Try adjusting your search or check back later.</p>
+                            <p class="text-lg font-semibold">No courses</p>
+                            <p class="text-sm text-gray-500 mt-1">Try adding your course</p>
                         </div>
                     @endforelse
 
@@ -392,6 +392,7 @@
         });
     });
 </script>
+
 <script>
     const options = {
         chart: {

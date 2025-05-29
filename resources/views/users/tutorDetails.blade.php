@@ -49,7 +49,8 @@
                         <div class="flex justify-between items-start mb-4">
                             <div>
                                 {{-- Category --}}
-                                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-1"> {{ $tutor->name }} </h2>
+                                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-1"> {{ $tutor->name }}
+                                </h2>
                                 <p class="text-blue-600 dark:text-blue-400 font-semibold"> {{ $tutor->occupation }} </p>
                             </div>
                         </div>
@@ -80,101 +81,112 @@
                     </div>
 
                     <div class="flex items-center">
-                            <svg class="w-5 h-5 text-yellow-400 me-1" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path
-                                    d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
+                        <svg class="w-5 h-5 text-yellow-400 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                        </svg>
 
-                            <p class="text-sm font-bold text-gray-900 dark:text-white">4.95 instructor rating</p>
-                            <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">2,345 reviews</p>
-                            <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">15,678 students</p>
-                            <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">8 courses</p>
+                        <p class="text-sm font-bold text-gray-900 dark:text-white">4.95 instructor rating</p>
+                        <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">2,345 reviews</p>
+                        <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">15,678 students</p>
+                        <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">8 courses</p>
 
                     </div>
                 </div>
             </div>
 
-        <!-- Courses Section -->
-        <div class="bg-gray-800 p-12">
-            <div class="rounded-lg mx-auto container">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl font-bold text-white">My Courses</h2>
-                </div>
+            <!-- Courses Section -->
+            <div class="bg-gray-800 p-12">
+                <div class="rounded-lg mx-auto container">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-white">My Courses</h2>
+                    </div>
 
-                <!-- Course Grid -->
-                <div class="grid grid-cols-4 gap-6">
-                    <!-- Course Card 1 -->
-                    @foreach ($ownedCourse as $course)
-                        <div
-                            class="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                            <a href="{{ route('course_detail', $course) }}">
-                                <img src="{{ asset('assets/AboutUs.png') }}" alt="Course Image"
-                                    class="w-full object-cover">
-                            </a>
-                            <div class="p-4">
-                                <div class="flex justify-between items-start">
-                                    <h3 class="text-lg font-semibold text-white mb-2">{{ $course->title }}</h3>
-                                    <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Active</span>
-                                </div>
-                                <p class="text-gray-300 text-sm mb-4">{{ $course->subtitle }}</p>
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center text-yellow-400">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
-                                            fill="currentColor">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                        </svg>
-                                        <span class="ml-1 text-sm">4.8</span>
+                    <!-- Course Grid -->
+                    <div class="grid grid-cols-4 gap-6">
+                        <!-- Course Card 1 -->
+                        @forelse ($ownedCourse as $course)
+                            <div
+                                class="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                                <a href="{{ route('course_detail', $course) }}">
+                                    <img src="{{ asset('assets/AboutUs.png') }}" alt="Course Image"
+                                        class="w-full object-cover">
+                                </a>
+                                <div class="p-4">
+                                    <div class="flex justify-between items-start">
+                                        <h3 class="text-lg font-semibold text-white mb-2">{{ $course->title }}</h3>
+                                        <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Active</span>
                                     </div>
-                                    <span class="text-gray-400 text-sm">24 Lessons</span>
+                                    <p class="text-gray-300 text-sm mb-4">{{ $course->subtitle }}</p>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex items-center text-yellow-400">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path
+                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <span class="ml-1 text-sm">4.8</span>
+                                        </div>
+                                        <span class="text-gray-400 text-sm">24 Lessons</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @empty
+                            <div
+                                class="flex flex-col items-center justify-center py-12 text-center text-gray-400 col-span-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4 text-gray-300"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                                </svg>
+                                <p class="text-lg font-semibold">No courses</p>
+                                <p class="text-sm text-gray-500 mt-1">Wait for the tutor to add one</p>
+                            </div>
+                        @endforelse
 
-                    <!-- Add New Course Card -->
-                    <div id="addCourseCard"
-                        class="hidden bg-gray-700 rounded-lg border-2 border-dashed border-gray-600 hover:border-gray-500 transition-colors">
-                        <div class="h-full flex flex-col items-center justify-center p-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mb-3"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg>
-                            <h3 class="text-lg font-semibold text-white mb-2">Add New Course</h3>
-                            <form id="courseForm" class="w-full space-y-4" method="POST"
-                                action="{{ route('courses.store') }}">
-                                @csrf
-                                <div>
-                                    <label for="courseTitle"
-                                        class="block text-sm font-medium text-gray-300 mb-1">Course
-                                        Title</label>
-                                    <input type="text" id="courseTitle" name="title"
-                                        class="w-full bg-gray-800 border border-gray-600 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="courseDescription"
-                                        class="block text-sm font-medium text-gray-300 mb-1">Description</label>
-                                    <textarea id="courseDescription" rows="3" name="description"
-                                        class="w-full bg-gray-800 border border-gray-600 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                                </div>
-                                <div class="flex gap-3">
-                                    <button type="submit"
-                                        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Save</button>
-                                    <button type="button" id="cancelAddCourse"
-                                        class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-lg">Cancel</button>
-                                </div>
-                            </form>
+                        <!-- Add New Course Card -->
+                        <div id="addCourseCard"
+                            class="hidden bg-gray-700 rounded-lg border-2 border-dashed border-gray-600 hover:border-gray-500 transition-colors">
+                            <div class="h-full flex flex-col items-center justify-center p-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mb-3"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>
+                                <h3 class="text-lg font-semibold text-white mb-2">Add New Course</h3>
+                                <form id="courseForm" class="w-full space-y-4" method="POST"
+                                    action="{{ route('courses.store') }}">
+                                    @csrf
+                                    <div>
+                                        <label for="courseTitle"
+                                            class="block text-sm font-medium text-gray-300 mb-1">Course
+                                            Title</label>
+                                        <input type="text" id="courseTitle" name="title"
+                                            class="w-full bg-gray-800 border border-gray-600 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    </div>
+                                    <div>
+                                        <label for="courseDescription"
+                                            class="block text-sm font-medium text-gray-300 mb-1">Description</label>
+                                        <textarea id="courseDescription" rows="3" name="description"
+                                            class="w-full bg-gray-800 border border-gray-600 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                    </div>
+                                    <div class="flex gap-3">
+                                        <button type="submit"
+                                            class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Save</button>
+                                        <button type="button" id="cancelAddCourse"
+                                            class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-lg">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
+
                     </div>
-
                 </div>
             </div>
-        </div>
 
         </div>
     </section>

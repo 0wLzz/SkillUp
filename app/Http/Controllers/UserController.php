@@ -22,7 +22,7 @@ class UserController extends Controller
 
     public function course_page(Request $request)
     {
-        $courses = Course::orderBy('created_at', 'DESC')->get();
+        $courses = Course::orderBy('created_at', 'DESC')->paginate(8);
         $featured = Course::where('is_featured', true)->get();
 
         if ($request->filled('search')) {
