@@ -40,7 +40,7 @@ class TutorRequestController extends Controller
         Tutor::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $password[0] . '123'
+            'password' => Hash::make($password[0] . '123')
         ]);
 
         return redirect()->back()->with('success', 'Tutor berhasil di-approve dan email dikirim.');

@@ -44,7 +44,7 @@
                         <li>
                             <form
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white""
-                                action="{{ route('logout_admin') }}" method="POST">
+                                action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit">Sign
                                     out</button>
@@ -105,6 +105,8 @@
             </div>
         </div>
     </nav>
+
+    <x-alert />
 
     {{ $slot }}
 </body>

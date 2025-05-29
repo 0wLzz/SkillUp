@@ -10,8 +10,7 @@ use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EarningController;
-use App\Http\Controllers\Admin\SubscriptionController;
-use App\Http\Controllers\StudentController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 
 // Tutor
 Route::middleware('auth:tutor')->group(function () {
@@ -38,16 +37,15 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/courses/select', [AdminController::class, 'selectPage'])->name('admin.course.selectPage');
     Route::patch('/admin/courses/select/{course}', [AdminController::class, 'selectFeatured'])->name('admin.course.select');
     Route::resource('/admin/category', CategoryController::class);
-    Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout_admin');
-});
 
-// Non Login Users
-Route::middleware('redirect:admin,tutor')->group(function () {
     // Request tutor
     Route::get('/admin/tutors/requests', [TutorRequestController::class, 'index'])->name('tutor_requests.index');
     Route::put('/admin/tutors/requests/{id}/approve', [TutorRequestController::class, 'approve'])->name('tutor_requests.approve');
     Route::put('/admin/tutors/requests/{id}/reject', [TutorRequestController::class, 'reject'])->name('tutor_requests.reject');
+});
 
+// Non Login Users
+Route::middleware('guest')->group(function () {
     // Auth Pages & Actions
     Route::get('/login', [AuthController::class, 'loginPage'])->name('login_page');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -74,10 +72,10 @@ Route::middleware('auth:web')->group(function () {
 });
 
 // All Role Page
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth:web,tutor,admin');
 
 // Public Pages
-Route::middleware(['auth:web', 'guest'])->group(function () {
+Route::middleware(RedirectIfAuthenticated::class . ':admin,tutor')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('home_page');
     Route::get('/courses', [UserController::class, 'course_page'])->name('course_page');
     Route::get('/courses/detail/{course}', [UserController::class, 'course_detail'])->name('course_detail');

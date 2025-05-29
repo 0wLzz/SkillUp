@@ -18,16 +18,6 @@
                         <a href="{{ route('register_tutor') }}" class="text-blue-400">Tutor</a>
                     </div>
 
-                    @if ($errors->any())
-                        <div class="text-red-600 mb-4">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>• {{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
                     <form class="space-y-4 md:space-y-6" action="{{ route('register_tutor.store') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
@@ -38,6 +28,9 @@
                             <input type="text" name="name" id="name"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:text-white"
                                 placeholder="John Doe" required>
+                            @error('name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div>
@@ -46,6 +39,9 @@
                             <input type="email" name="email" id="email"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:text-white"
                                 placeholder="you@example.com" required>
+                            @error('email')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div>
@@ -55,6 +51,9 @@
                             <input type="text" name="phone" id="phone"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:text-white"
                                 placeholder="081234567890" required>
+                            @error('phone')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div>
@@ -63,6 +62,10 @@
                             <input type="file" name="portfolio" id="portfolio"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:text-white"
                                 required>
+                            <p class="text-gray-400 text-sm p-1">Only PDF Format</p>
+                            @error('portfolio')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <button type="submit"

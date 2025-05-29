@@ -17,7 +17,7 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next,  ...$guards): Response
     {
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
+            if (Auth::guard($guard)->user()) {
                 if ('admin' == $guard) {
                     return redirect()->route('admin_page');
                 }

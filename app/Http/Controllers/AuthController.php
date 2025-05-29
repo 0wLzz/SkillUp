@@ -51,18 +51,11 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required',
-            'portfolio' => 'required|file'
+            'portfolio' => 'required|file|mimes:pdf'
         ]);
 
         // Simpan file portofolio ke storage
         $portfolioPath = $request->file('portfolio')->store('portfolios', 'public');
-
-        /* User::create([;
-            'name' => $request->name,;
-            'email' => $request->email,;
-            'password' => Hash::make('default123'), // default password;
-            'role' => 'tutor';
-        ]); */
 
         TutorRequest::create([
             'name' => $request->name,
@@ -71,8 +64,6 @@ class AuthController extends Controller
             'portfolio_path' => $portfolioPath,
             'status' => 'pending'
         ]);
-
-        //return redirect()->route('login_page')->with('success', 'Pendaftaran tutor berhasil!');
 
         return redirect()->route('login_page')->with('success', 'Pendaftaran tutor berhasil dikirim! Tunggu konfirmasi dari admin.');
     }
@@ -95,14 +86,13 @@ class AuthController extends Controller
                 $request->session()->regenerate();
 
                 return match ($guard) {
-                    'admin' => redirect()->route('admin_page'),
-                    'tutor' => redirect()->route('tutor_dashboard'),
-                    'web'   => redirect()->route('home_page'),
+                    'admin' => redirect()->route('admin_page')->with('success', 'Login Berhasil!'),
+                    'tutor' => redirect()->route('tutor_dashboard')->with('success', 'Login Berhasil!'),
+                    'web'   => redirect()->route('home_page')->with('success', 'Login Berhasil!'),
                     default => redirect()->back()->with(['error' => 'Email atau password salah'])
                 };
             }
         }
-
 
         return back()->with(['error' => 'Email atau password salah']);
     }
@@ -111,15 +101,6 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-        return redirect()->route('login_page')->with('success', 'Logout berhasil!');
-    }
-
-    public function logout_admin(Request $request)
-    {
-        Auth::guard('admin')->logout();
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
