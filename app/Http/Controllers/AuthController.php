@@ -82,7 +82,7 @@ class AuthController extends Controller
         $guards = ['admin', 'tutor', 'web'];
 
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->attempt($credentials)) {
+            if (Auth::guard($guard)->attempt($credentials, $request->remember)) {
                 $request->session()->regenerate();
 
                 return match ($guard) {

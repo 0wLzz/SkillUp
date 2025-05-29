@@ -63,9 +63,11 @@ class CourseController extends Controller
             'benefits.*' => 'required|string|max:255',
         ]);
 
-        $path = $course->thumbnail;
+        $path = $course->thumbnail ?? null;
         if ($request->hasFile('thumbnail')) {
-            Storage::disk('public')->delete($course->thumbnail);
+            if ($path != null) {
+                Storage::disk('public')->delete($course->thumbnail);
+            }
             $path = $request->file('thumbnail')->store('thumbnails', 'public');
         }
 

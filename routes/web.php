@@ -82,6 +82,5 @@ Route::middleware(RedirectIfAuthenticated::class . ':admin,tutor')->group(functi
     Route::get('/course/search', [UserController::class, 'course_page'])->name('course.search');
 });
 
-
 Route::get('/earnings', [EarningController::class, 'index'])->name('earnings');
 Route::get('/earnings-data/{year}', [EarningController::class, 'getEarningsData']);

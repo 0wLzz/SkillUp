@@ -33,8 +33,9 @@ class AdminController extends Controller
     public function delete_tutor($id)
     {
         $tutor = Tutor::find($id);
+
         $tutor->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Menghapus Tutor!');
     }
 
     public function selectPage()
