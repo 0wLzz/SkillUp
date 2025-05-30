@@ -76,7 +76,11 @@ class UserController extends Controller
     public function edit_profile()
     {
         $user = Auth::guard('web')->user();
-        return view('users.editProfile', compact('user'));
+        $ownedCourse = CoursePurchase::with('course')
+            ->where('user_id', $user->id)
+            ->get()
+            ->pluck('course');
+        return view('users.editProfile', compact(['user', 'ownedCourse']));
     }
 
     public function update_profile(Request $request)
