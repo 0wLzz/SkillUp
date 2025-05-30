@@ -13,9 +13,8 @@
         @forelse ($courses as $course)
             <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-sm">
                 <div class="flex items-center gap-4">
-                    <img src="{{ asset('storage/' . $course->thumbnail) }}" alt="Thumbnail"
-                        class="w-24 h-24 object-cover rounded-lg border border-gray-200">
-
+                    <img src="{{ $course->thumbnail ? asset('storage/' . $course->thumbnail) : asset('assets/course-default.png') }}"
+                        alt="Thumbnail" class="w-24 h-24 object-cover rounded-lg border border-gray-200">
                     <div>
                         <h2 class="font-bold text-lg">{{ $course->title }}</h2>
                         <p class="text-sm text-gray-500">{{ $course->subtitle }}</p>

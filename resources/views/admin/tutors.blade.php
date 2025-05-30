@@ -10,7 +10,8 @@
             <div class="grid grid-cols-3 items-center gap-4 p-4">
                 {{-- Column 1: Profile --}}
                 <div class="flex items-center gap-4">
-                    <img src="{{ asset('assets/AboutUs.png') }}" class="w-16 h-16 rounded-full object-cover">
+                    <img src="{{ $tutor->image ? asset('storage/' . $tutor->image) : asset('assets/default-avatarjpg.jpg') }}"
+                        class="w-16 h-16 rounded-full object-cover">
                     <div class="flex flex-col">
                         <span class="font-bold text-lg">{{ $tutor->name }}</span>
                         <span class="text-gray-400">{{ $tutor->occupation }}</span>
