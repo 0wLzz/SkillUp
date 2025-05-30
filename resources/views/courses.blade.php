@@ -36,13 +36,16 @@
                         All Courses
                     </h2>
                     <div class="flex space-x-4">
-                        <select
+                        <select id="courseFilter"
                             class="bg-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>Filter</option>
-                            <option>Popular</option>
-                            <option>Newest</option>
-                            <option>Highest Rated</option>
+                            <option value="">Filter</option>
+                            <option value="popular" {{ request('filter') == 'popular' ? 'selected' : '' }}>Popular
+                            </option>
+                            <option value="newest" {{ request('filter') == 'newest' ? 'selected' : '' }}>Newest</option>
+                            <option value="highest_rated" {{ request('filter') == 'highest_rated' ? 'selected' : '' }}>
+                                Highest Rated</option>
                         </select>
+
                     </div>
                 </div>
 
@@ -62,8 +65,21 @@
                         </div>
                     @endforelse
                 </div>
-                {{ $courses->links() }}
+                {{ $courses->appends(request()->query())->links() }}
             </div>
         </div>
     </section>
 </x-layout>
+
+<script>
+    document.getElementById('courseFilter').addEventListener('change', function() {
+        const selected = this.value;
+        const url = new URL(window.location.href);
+        if (selected) {
+            url.searchParams.set('filter', selected);
+        } else {
+            url.searchParams.delete('filter');
+        }
+        window.location.href = url.toString();
+    });
+</script>

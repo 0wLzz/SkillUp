@@ -17,7 +17,9 @@ class CurriculumFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->title(),
+            'title' => fake()->sentence(2),
+            'course_id' => fake()->numberBetween(1, 12),
+            'tutor_id' => fake()->numberBetween(1, 4),
             'created_at' => now()
         ];
     }

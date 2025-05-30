@@ -2,7 +2,22 @@
 <section id="courses">
     <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-10 lg:py-10 lg:px-6">
         <!-- Row -->
-        <div id="category-carousel"
+        <div class="text-center py-10 px-6">
+            <h1
+                class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                Discover <mark
+                    class="px-3 py-1 text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded dark:from-blue-500 dark:to-purple-500">New
+                    COURSES</mark> to Elevate Your Skills!
+            </h1>
+            <p class="text-lg font-medium text-gray-600 lg:text-xl dark:text-gray-400 max-w-2xl mx-auto">
+                Di <span class="font-semibold text-blue-600 dark:text-blue-400">SkillUp</span>, kami menghubungkan Anda
+                dengan kursus siap pakai untuk industri dan tutor kelas dunia — semua dirancang untuk membantu Anda
+                berkembang lebih cepat dan lebih cerdas.
+            </p>
+
+        </div>
+
+        {{-- <div id="category-carousel"
             class="items-center relative w-full text-center bg-gray-900 rounded drop-shadow-xl text-gray-500 sm:text-lg dark:text-gray-400">
             <!-- Category Display -->
             <div class="relative h-16 flex items-center justify-center text-2xl font-bold gap-24">
@@ -30,7 +45,7 @@
                         d="m1 9 4-4-4-4" />
                 </svg>
             </button>
-        </div>
+        </div> --}}
 
         {{-- Courses --}}
         <div class="grid grid-cols-4 gap-8">

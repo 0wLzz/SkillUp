@@ -41,7 +41,8 @@
                 <div
                     class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.01]">
                     <div class="relative">
-                        <img class="w-full h-64 object-cover" src="{{ asset('assets/AboutUs.png') }}"
+                        <img class="w-full h-64 object-cover"
+                            src="{{ $course->thumbnail ? asset('storage/' . $course->thumbnail) : asset('assets/course-default.png') }}"
                             alt="Course Cover">
                         <div
                             class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -82,13 +83,14 @@
 
                         <div class="grid grid-cols-4 gap-4 text-center mb-6">
                             <div class="flex flex-col items-center">
-                                <svg class="w-8 h-8 text-gray-800 dark:text-white mb-1" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-8 h-8 text-white mb-1">
+                                    <path
+                                        d="M7.493 18.5c-.425 0-.82-.236-.975-.632A7.48 7.48 0 0 1 6 15.125c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75A.75.75 0 0 1 15 2a2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23h-.777ZM2.331 10.727a11.969 11.969 0 0 0-.831 4.398 12 12 0 0 0 .52 3.507C2.28 19.482 3.105 20 3.994 20H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 0 1-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227Z" />
                                 </svg>
-                                <span class="text-sm text-gray-600 dark:text-gray-300">100 Likes</span>
+
+                                <span class="text-sm text-gray-600 dark:text-gray-300">
+                                    {{ $course->rating }} Likes</span>
                             </div>
                             <div class="flex flex-col items-center">
                                 <svg class="w-8 h-8 text-gray-800 dark:text-white mb-1" aria-hidden="true"
@@ -96,7 +98,8 @@
                                     <path stroke="currentColor" stroke-width="2"
                                         d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                 </svg>
-                                <span class="text-sm text-gray-600 dark:text-gray-300">100 Students</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-300">{{ $course->purchases->count() }}
+                                    Students</span>
                             </div>
                             <div class="flex flex-col items-center">
                                 <svg class="w-8 h-8 text-gray-800 dark:text-white mb-1" aria-hidden="true"
@@ -105,7 +108,8 @@
                                         stroke-width="2"
                                         d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
                                 </svg>
-                                <span class="text-sm text-gray-600 dark:text-gray-300">100 Favorites</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-300">{{ $course->views }}
+                                    Favorites</span>
                             </div>
                             <div class="flex flex-col items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -121,8 +125,7 @@
                         <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <span
-                                        class="text-gray-500 dark:text-gray-400 line-through">@currency($course->price * 1.2)</span>
+                                    <span class="text-gray-500 dark:text-gray-400 line-through">@currency($course->price * 1.2)</span>
                                     <p class="text-2xl font-bold text-gray-900 dark:text-white">@currency($course->price)</p>
                                 </div>
                                 <span
@@ -181,16 +184,14 @@
                 <div class="flex flex-col md:flex-row gap-8">
                     <div class="flex-shrink-0">
                         <img class="w-32 h-32 rounded-full object-cover shadow-lg"
-                            src="{{ asset('assets/Carousel2.jpg') }}" alt="Ambda Jansen">
+                            src="{{ $tutor->image ? asset('storage/' . $tutor->image) : asset('assets/default-avatarjpg.jpg') }}"
+                            alt="Ambda Jansen">
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ambda Jansen</h3>
-                        <p class="text-blue-600 dark:text-blue-400 font-medium mb-4">Communication Expert</p>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{ $tutor->name }} </h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium mb-4">{{ $tutor->occupation }}</p>
                         <p class="text-gray-700 dark:text-gray-300 mb-4">
-                            With over 15 years of experience in interpersonal communication and relationship building,
-                            Ambda has helped thousands of professionals and individuals transform their social skills.
-                            As a certified behavioral analyst and former corporate trainer, she brings a unique blend of
-                            academic knowledge and practical experience to her teaching.
+                            {{ $tutor->description }}
                         </p>
                         <div class="flex items-center">
                             <svg class="w-5 h-5 text-yellow-400 me-1" aria-hidden="true"
@@ -202,9 +203,11 @@
                             <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
                             <p class="text-sm text-gray-600 dark:text-gray-300">2,345 reviews</p>
                             <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">15,678 students</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                                {{ $tutor->courses->sum('purchases_count') }} students</p>
                             <span class="w-1 h-1 mx-2 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">8 courses</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">{{ $tutor->courses->count() }} courses
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -281,7 +284,7 @@
                                                     </a>
                                                 </div>
                                                 <span
-                                                    class="text-sm text-gray-400">{{ $material->video ? date('H:i:s', $material->getDuration()) : '' }}</span>
+                                                    class="text-sm text-gray-400">{{ $material->video ? date('H:i:s', $material->getDuration()) : '1:53' }}</span>
                                             </div>
                                         @else
                                             {{-- Worksheet --}}
@@ -294,7 +297,7 @@
                                                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                                                         </path>
                                                     </svg>
-                                                    <a href="{{ asset('storage/' . $material->worksheet) }}"
+                                                    <a href="{{ $material->worksheet ? asset('storage/' . $material->worksheet) : asset('assets/WorksheetDefault.pdf') }}"
                                                         target="_blank"
                                                         class="hover:underline underline-offset-2 decoration-sky-500">
                                                         <span class="text-white">Worksheet:
@@ -333,24 +336,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Newsletter Section -->
-    <div class="bg-gray-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-2xl font-bold text-white mb-4">Stay Updated With New Courses</h3>
-            <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Subscribe to our newsletter to get the latest course updates and exclusive offers.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto gap-4">
-                <input type="email" placeholder="Your email address"
-                    class="flex-grow px-4 py-3 rounded-lg bg-gray-700 text-white 
-                              focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors">
-                    Subscribe
-                </button>
-            </div>
-        </div>
-    </div>
 
     <script>
         // Initialize accordion functionality

@@ -28,7 +28,9 @@
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
                     <a href="{{ route('tutor_detail', $tutor) }}">
-                        <img class="rounded-t-lg" src="{{ asset('assets/Carousel2.jpg') }}" alt="" />
+                        <img class="rounded-t-lg object-cover aspect-video"
+                            src="{{ $tutor->image ? asset('storage/' . $tutor->image) : asset('assets/default-teacher.jpg') }}"
+                            alt="" />
                     </a>
                     <div class="p-5">
                         <a href="{{ route('tutor_detail', $tutor) }}">

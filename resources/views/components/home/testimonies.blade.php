@@ -4,12 +4,12 @@
     }
 </style>
 
-<section id="testimonies" class="px-6 py-10 flex flex-col items-center overflow-hidden">
+<section id="testimonies" class="px-6 py-10 m-20 flex flex-col items-center overflow-hidden">
     <!-- Title -->
     <h1 class="font-bold text-5xl text-white mb-8 text-center">
-        Apa yang
-        <span class="text-blue-600 underline underline-offset-4">Client</span>
-        Katakan!
+        What
+        <span class="text-blue-600 underline underline-offset-4">Clients</span>
+        are saying!
     </h1>
 
     <!-- Scrolling Container -->
@@ -21,7 +21,7 @@
                         <div class="text-white bg-gray-800 rounded-xl p-8 min-w-[24rem] max-w-sm">
                             <div class="flex items-center gap-6">
                                 <div class="flex flex-col items-center font-bold">
-                                    <img src="{{ asset('assets/AboutUs.png') }}"
+                                    <img src="{{ asset('assets/simu-liu.jpg') }}"
                                         class="w-32 aspect-square object-cover rounded-lg">
                                     <h3>Alex Johnson</h3>
                                     <h3>Mahasiswa IT</h3>

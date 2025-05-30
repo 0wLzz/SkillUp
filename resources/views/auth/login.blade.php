@@ -46,7 +46,7 @@
                                         me</label>
                                 </div>
                             </div>
-                            <a href="#"
+                            <a href="{{ route('password.request') }}"
                                 class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Forgot
                                 password?</a>
                         </div>

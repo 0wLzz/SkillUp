@@ -1,4 +1,6 @@
 <x-layout>
+    <x-alert />
+
     <div class="max-h-screen-xl">
         {{-- Hero Component --}}
         <x-home.hero />
@@ -16,6 +18,26 @@
 
         {{-- Testimonies Component --}}
         <x-home.testimonies />
+
+        <!-- Newsletter Section -->
+        <div class="bg-gray-800 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="text-2xl font-bold text-white mb-4">Stay Updated With New Courses</h3>
+                <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+                    Subscribe to our newsletter to get the latest course updates and exclusive offers.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto gap-4">
+                    <form action="{{ route('subscribe') }}">
+                        <input type="email" placeholder="Your email address" required
+                            class="flex-grow px-4 py-3 rounded-lg bg-gray-700 text-white 
+                                  focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="payment-confirmation-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"

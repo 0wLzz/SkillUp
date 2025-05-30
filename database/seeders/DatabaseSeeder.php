@@ -5,6 +5,10 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\CourseBenefit;
+use App\Models\Curriculum;
+use App\Models\MaterialVideo;
+use App\Models\MaterialWorksheet;
 use App\Models\Tutor;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,16 +23,22 @@ class DatabaseSeeder extends Seeder
     {
         // Tutor::factory(1)->create();
 
-        // Category::factory()->create([
-        //     'name' => 'Self Improvement'
-        // ]);
+        $categories = ['Self Improvement', 'Communication', 'Critical Thinking'];
+        foreach ($categories as $category) {
+            Category::factory()->create([
+                'name' => $category
+            ]);
+        }
 
-        Course::factory(5)->create();
         Admin::factory(1)->create();
+        $this->call([
+            TutorSeeder::class,
+            CourseSeeder::class,
+            CourseBenefitSeeder::class,
+        ]);
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Curriculum::factory(50)->create();
+        MaterialVideo::factory(50)->create();
+        MaterialWorksheet::factory(50)->create();
     }
 }

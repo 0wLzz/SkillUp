@@ -17,8 +17,8 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <a href="{{ route('course_page') }}"
-                                class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Courses</a>
+                            <a href="{{ route('home_page') }}"
+                                class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Tutors</a>
                         </div>
                     </li>
                     <li aria-current="page">
@@ -41,7 +41,8 @@
                 <div
                     class="w-128 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg overflow-hidden transition-transform">
                     <div class="relative">
-                        <img class="w-full h-100 object-cover" src="{{ asset('assets/Carousel2.jpg') }}"
+                        <img class="w-full h-100 object-cover"
+                            src="{{ $tutor->image ? asset('storage/' . $tutor->image) : asset('assets/default-teacher.jpg') }}"
                             alt="Course Cover">
                     </div>
 
@@ -103,7 +104,7 @@
             <div class="bg-gray-800 p-12">
                 <div class="rounded-lg mx-auto container">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-white">My Courses</h2>
+                        <h2 class="text-2xl font-bold text-white">Tutor Courses</h2>
                     </div>
 
                     <!-- Course Grid -->
@@ -113,8 +114,8 @@
                             <div
                                 class="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                 <a href="{{ route('course_detail', $course) }}">
-                                    <img src="{{ asset('assets/AboutUs.png') }}" alt="Course Image"
-                                        class="w-full object-cover">
+                                    <img src="{{ $course->thumbnail ? asset('storage/' . $course->thumbnail) : asset('assets/course-default.png') }}"
+                                        alt="Course Image" class="w-full object-cover aspect-video">
                                 </a>
                                 <div class="p-4">
                                     <div class="flex justify-between items-start">
@@ -131,7 +132,8 @@
                                             </svg>
                                             <span class="ml-1 text-sm">4.8</span>
                                         </div>
-                                        <span class="text-gray-400 text-sm">24 Lessons</span>
+                                        <span class="text-gray-400 text-sm">{{ $course->curriculums->count() }}
+                                            Lessons</span>
                                     </div>
                                 </div>
                             </div>

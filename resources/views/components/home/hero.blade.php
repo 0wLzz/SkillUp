@@ -1,17 +1,20 @@
 <section id="hero" class="bg-gray-900">
     <div class="grid max-w-screen-xl p-6 mx-auto grid-cols-12">
-        <div class="mr-auto place-self-center col-span-7">
-            <h1
-                class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-                Learn Real World Skill <br>with <span class="dark:text-blue-500">SkillUp!</span></h1>
 
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad iusto perferendis modi eveniet eos, enim
-                iure dicta rerum eligendi nobis distinctio accusantium neque tempora deserunt. Architecto, fugiat quis.
-                Perferendis, incidunt? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi numquam quia iusto
-                eos deleniti, accusamus vitae porro minima doloremque qui magni fugit eveniet optio voluptatibus error
-                provident possimus consequatur praesentium?
+        <div class="mr-auto place-self-center col-span-7">
+            <h1 class="mb-6 font-extrabold leading-tight tracking-tight text-white text-6xl">
+                Learn <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-600">Real World
+                    Skills</span><br>
+                with <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">SkillUp!</span>
+            </h1>
+
+            <p class="max-w-2xl font-light mb-8 text-xl text-gray-400">
+                Siap membangun masa depan? Ikuti kursus praktis yang berorientasi industri dan dipandu oleh mentor ahli.
+                Pelajari cara menyelesaikan masalah nyata, menciptakan AI yang skalabel, dan kuasai alat-alat paling
+                dibutuhkan saat ini. Saatnya SkillUp dan tampil menonjol.
             </p>
+
         </div>
 
         {{-- Hero Images --}}
@@ -21,12 +24,12 @@
                 <div class="relative w-full h-full">
                     <!-- Item 1 -->
                     <div class="duration-700 ease-in-out" data-carousel-item="active">
-                        <img src="{{ asset('assets/default.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
+                        <img src="{{ asset('assets/Carousel1.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
                     </div>
 
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('assets/default.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
+                        <img src="{{ asset('assets/Carousel2.jpg') }}" class="aspect-3/2 object-cover rounded-lg">
                     </div>
                 </div>
 

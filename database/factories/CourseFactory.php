@@ -29,6 +29,8 @@ class CourseFactory extends Factory
             'subtitle' => fake()->title(),
             'description' => fake()->text(100),
             'price' => fake()->numberBetween(500000, 1500000),
+            'rating' => fake()->numberBetween(3, 5),
+            'views' => fake()->numberBetween(100, 10000),
             'is_featured' => fake()->numberBetween(0, 1)
         ];
     }

@@ -17,7 +17,8 @@ class MaterialVideoFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->title(),
+            'title' => fake()->sentence(2),
+            'curriculum_id' => fake()->numberBetween(1, 50),
             'description' => fake()->text(100)
         ];
     }

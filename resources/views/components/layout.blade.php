@@ -22,7 +22,7 @@
 <body>
     <header class="fixed w-full z-100">
         <nav class="border-gray-200 bg-gray-900">
-            <div class="flex gap-4 items-center p-4 w-full justify-around">
+            <div class="flex gap-4 items-center p-7 w-full justify-around">
                 <div class="flex items-center gap-8">
                     <a href="{{ route('home_page') }}" class="items-center space-x-3 rtl:space-x-reverse">
                         <img src="{{ asset('assets/SkillUp.png') }}" class="h-8" alt="SkillUp Logo" />
@@ -31,24 +31,26 @@
                         class="text-white font-medium rounded-lg hover:text-blue-400">Courses</a>
                 </div>
                 <div class="flex items-center w-1/2">
-                    <form method="GET" action="{{ route('course.search') }}">
-                        <label for="default-search"
-                            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                                </svg>
+                    @if (!Auth::guard('tutor')->user())
+                        <form method="GET" action="{{ route('course.search') }}">
+                            <label for="default-search"
+                                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    </svg>
+                                </div>
+                                <input name="search" type="search" id="default-search"
+                                    class="flex w-5xl p-4 ps-10 text-sm border rounded-full focus:ring-blue-500  bg-gray-700 border-gray-600 placeholder-gray-400 text-white  focus:border-blue-500"
+                                    placeholder="Search Courses..." required />
+                                <button type="submit"
+                                    class="text-white absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Search</button>
                             </div>
-                            <input name="search" type="search" id="default-search"
-                                class="flex w-5xl p-4 ps-10 text-sm border rounded-full focus:ring-blue-500  bg-gray-700 border-gray-600 placeholder-gray-400 text-white  focus:border-blue-500"
-                                placeholder="Search Courses..." required />
-                            <button type="submit"
-                                class="text-white absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-full text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Search</button>
-                        </div>
-                    </form>
+                        </form>
+                    @endif
                 </div>
                 <div class="flex gap-4">
                     @auth

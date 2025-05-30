@@ -61,6 +61,13 @@ Route::middleware('guest')->group(function () {
     // Register Tutor
     Route::get('/register/tutor', [AuthController::class, 'registerTutor'])->name('register_tutor');
     Route::post('/register/tutor', [AuthController::class, 'storeTutor'])->name('register_tutor.store');
+
+    Route::get('/forgot-password', [AuthController::class, 'forgotPasswordPage'])->name('password.request');
+
+    Route::post('/forgot-password', [AuthController::class, 'handleForgotPassword'])->name('password.email');
+    Route::get('/reset-password/{token}', [AuthController::class, 'resetPassword'])->name('password.reset');
+
+    Route::post('/reset-password', [AuthController::class, 'updatePassword'])->name('password.update');
 });
 
 // Student
@@ -85,7 +92,5 @@ Route::middleware(RedirectIfAuthenticated::class . ':admin,tutor')->group(functi
     Route::get('/courses/detail/{course}', [UserController::class, 'course_detail'])->name('course_detail');
     Route::get('/course/search', [UserController::class, 'course_page'])->name('course.search');
     Route::get('/tutor/detail/{tutor}', [UserController::class, 'tutor_detail'])->name('tutor_detail');
+    Route::get('/subscribe', [UserController::class, 'subscribe'])->name('subscribe');
 });
-
-Route::get('/earnings', [EarningController::class, 'index'])->name('earnings');
-Route::get('/earnings-data/{year}', [EarningController::class, 'getEarningsData']);

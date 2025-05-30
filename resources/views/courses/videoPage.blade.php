@@ -4,9 +4,9 @@
 
             <!-- Course Header -->
             <div class="py-6 border-b border-gray-200 dark:border-gray-700">
-                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Live Class: {{ $video->title }}
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{{ $video->title }}
                 </h1>
-                <p class="text-gray-600 dark:text-gray-400">{{ $video->curriculum->title }}</p>
+                <p class="text-gray-600 dark:text-gray-400">{{ $video->description }}</p>
             </div>
 
             <!-- Main Content Grid -->
@@ -17,7 +17,9 @@
                     <div class="bg-black rounded-lg overflow-hidden aspect-video">
                         <!-- Replace with your actual video embed code -->
                         <video controls class="w-full h-auto rounded-lg bg-black" preload="metadata">
-                            <source src="{{ asset('storage/' . $video->video) }}" type="video/mp4">
+                            <source
+                                src="{{ $video->video ? asset('storage/' . $video->video) : asset('assets/Default-Video.mp4') }}"
+                                type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>

@@ -20,11 +20,29 @@ class UserController extends Controller
         return view('index', compact(['courses', 'tutors']));
     }
 
+    public function subscribe()
+    {
+        return redirect()->back()->with('success', 'You have successfully Subscribed!');
+    }
+
     public function course_page(Request $request)
     {
         $query = Course::orderBy('created_at', 'DESC');
+
         if ($request->filled('search')) {
             $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        switch ($request->filter) {
+            case 'popular':
+                $query->orderBy('views', 'desc'); // assuming a 'views' column
+                break;
+            case 'newest':
+                $query->orderBy('created_at', 'desc');
+                break;
+            case 'highest_rated':
+                $query->orderBy('rating', 'desc'); // assuming a 'rating' column
+                break;
         }
 
         $courses = $query->paginate(8);
@@ -43,7 +61,9 @@ class UserController extends Controller
                 ->exists();
         }
 
-        return view('courses.detail', compact(['course', 'is_purchased']));
+        $tutor = $course->tutor;
+
+        return view('courses.detail', compact(['course', 'is_purchased', 'tutor']));
     }
 
     public function tutor_detail(Tutor $tutor)
