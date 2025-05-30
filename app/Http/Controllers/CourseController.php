@@ -37,7 +37,9 @@ class CourseController extends Controller
             'title' => $request->title,
             'description' => $request->subtitle,
             'category_id' => 1,
-            'tutor_id' => 1
+            'tutor_id' => 1,
+            'rating' => 0,
+            'views' => 0
         ]);
 
         return redirect()->back()->with('success', 'Course berhasil ditambahkan!');
@@ -77,8 +79,8 @@ class CourseController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'thumbnail' => $path,
-            'category_id' => 1,
-            'tutor_id' => 1
+            'category_id' => $request->category,
+            'tutor_id' => Auth::guard('tutor')->user->id
         ]);
 
         // Get the Existing Benefits 
