@@ -6,21 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+use function PHPSTORM_META\map;
+
 class Course extends Model
 {
     use HasFactory;
-    // protected $fillable = ['title', 'subtitle', 'tutor_id', 'category_id', 'students', 'videos', 'thumbnail', 'price', 'description'];
-    protected $fillable = [
-        'title',
-        'subtitle',
-        'teacher',
-        'students',
-        'videos',
-        'thumbnail',
-        'price',
-        'tutor_id',
-        'category_id'
-    ];
+    protected $guarded = ['id'];
 
     public function category()
     {
