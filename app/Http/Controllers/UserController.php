@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $tutors = Tutor::limit(5)->get();
+        $tutors = Tutor::limit(4)->get();
         $courses = Course::all();
         return view('index', compact(['courses', 'tutors']));
     }
