@@ -11,11 +11,11 @@ class Experts extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $tutors;
+    public function __construct($tutors)
     {
-        //
+        $this->tutors = $tutors;
     }
-
     /**
      * Get the view / contents that represent the component.
      */
