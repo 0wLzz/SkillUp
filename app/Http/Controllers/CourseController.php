@@ -37,7 +37,7 @@ class CourseController extends Controller
             'title' => $request->title,
             'description' => $request->subtitle,
             'category_id' => 1,
-            'tutor_id' => 1,
+            'tutor_id' => Auth::guard('tutor')->user->id,
             'rating' => 0,
             'views' => 0
         ]);
