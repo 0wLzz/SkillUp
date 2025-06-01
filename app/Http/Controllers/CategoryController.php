@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
@@ -25,7 +27,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|unique:category,name',
         ]);
 
         Category::create([
@@ -38,10 +40,17 @@ class CategoryController extends Controller
     // Update data course
     public function update(Request $request, Category $category)
     {
-        // dd($category);
-        $request->validate([
-            'name' => 'required',
+        $validator = Validator::make($request->all(), [
+            'name' => [
+                'required',
+                'string',
+                Rule::unique('categories')->ignore($category->id)
+            ]
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first('name'));
+        }
 
         $data = $request->only('name');
         $category->update($data);

@@ -9,6 +9,8 @@
         </div>
     </div>
 
+    <x-alert />
+
     <div class="max-w-screen-xl mx-auto p-4 bg-white rounded-xl mt-4 space-y-4">
         @forelse ($categories as $category)
             <div class="flex items-center justify-center p-4 gap-4">
@@ -18,6 +20,9 @@
                     <input value="{{ $category->name }}" type="text" name="name"
                         class="border text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:border-blue-500"
                         required />
+                    @error('name')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                     <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 rounded">
                         Update
                     </button>
