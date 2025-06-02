@@ -2,10 +2,6 @@
     <div class="bg-gray-800">
         <div class="max-w-screen-xl flex justify-between p-4 mx-auto items-center">
             <h1 class="text-white text-xl font-bold">Manage Courses</h1>
-            <a href="{{ route('courses.create') }}"
-                class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg px-4 py-2">
-                + Add Course
-            </a>
         </div>
     </div>
 

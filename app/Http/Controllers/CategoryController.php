@@ -26,9 +26,14 @@ class CategoryController extends Controller
     // Simpan course baru
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|unique:category,name',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|string|unique:category,name|regex:/^[A-Za-z ]+$/',
+            ],
+            [
+                'name.regex' => 'The :attribute must not contain symbols.'
+            ]
+        );
 
         Category::create([
             'name' => $request->name
@@ -40,13 +45,20 @@ class CategoryController extends Controller
     // Update data course
     public function update(Request $request, Category $category)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => [
-                'required',
-                'string',
-                Rule::unique('categories')->ignore($category->id)
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => [
+                    'required',
+                    'string',
+                    Rule::unique('categories')->ignore($category->id),
+                    'regex:/^[A-Za-z ]+$/'
+                ]
+            ],
+            [
+                'name.regex' => 'The :attribute must not contain symbols.'
             ]
-        ]);
+        );
 
         if ($validator->fails()) {
             return redirect()->back()->with('error', $validator->errors()->first('name'));

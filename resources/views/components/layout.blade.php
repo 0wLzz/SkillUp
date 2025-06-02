@@ -73,22 +73,30 @@
                                     class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ Auth::user()->email }}</span>
                             </div>
                             <ul class="py-2" aria-labelledby="user-menu-button">
-                                <li>
-                                    @if (Auth::guard('web')->user())
+                                @if (Auth::guard('web')->user())
+                                    <li>
                                         <a href="{{ route('user.profile') }}"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                            class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white">
                                             Edit Profile
                                         </a>
-                                    @else
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('user.course.owned') }}"
+                                            class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white">
+                                            Owned Course
+                                        </a>
+                                    </li>
+                                @else
+                                    <li>
                                         <a href="{{ route('tutor.profile.edit') }}"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                            class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white">
                                             Edit Profile
                                         </a>
-                                    @endif
-                                </li>
+                                    </li>
+                                @endif
                                 <li>
                                     <form action="{{ route('logout') }}" method="POST"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                        class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white">
                                         @csrf
                                         <button type="submit">
                                             <span class="text-red-400">

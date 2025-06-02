@@ -321,7 +321,7 @@
                             </form>
                         </div>
                     @empty
-                        <div
+                        <div id="emptyCard"
                             class="flex flex-col items-center justify-center py-12 text-center text-gray-400 col-span-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4 text-gray-300"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -380,12 +380,14 @@
     document.addEventListener('DOMContentLoaded', function() {
         const addCourseBtn = document.getElementById('addCourseBtn');
         const addCourseCard = document.getElementById('addCourseCard');
+        const emptyCard = document.getElementById('emptyCard');
         const cancelAddCourse = document.getElementById('cancelAddCourse');
         const courseForm = document.getElementById('courseForm');
 
         // Show add course form
         addCourseBtn.addEventListener('click', function() {
             addCourseCard.classList.remove('hidden');
+            emptyCard.classList.add('hidden');
             addCourseCard.scrollIntoView({
                 behavior: 'smooth'
             });

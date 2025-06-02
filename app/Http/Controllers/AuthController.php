@@ -24,11 +24,16 @@ class AuthController extends Controller
     // Simpan data student
     public function storeStudent(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|string|max:255|regex:/^[A-Za-z ]+$/',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|min:6|confirmed',
+            ],
+            [
+                'name.regex' => 'The :attribute must not contain symbols.'
+            ]
+        );
 
         User::create([
             'name' => $request->name,
@@ -49,12 +54,17 @@ class AuthController extends Controller
     // Simpan data tutor
     public function storeTutor(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'phone' => 'required',
-            'portfolio' => 'required|file|mimes:pdf'
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|string|max:255|regex:/^[A-Za-z ]+$/',
+                'email' => 'required|email|unique:users,email',
+                'phone' => 'required',
+                'portfolio' => 'required|file|mimes:pdf'
+            ],
+            [
+                'name.regex' => 'The :attribute must not contain symbols.'
+            ]
+        );
 
         // Simpan file portofolio ke storage
         $portfolioPath = $request->file('portfolio')->store('portfolios', 'public');

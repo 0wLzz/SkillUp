@@ -77,6 +77,7 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/courses/video/{video}', [CourseController::class, 'course_video'])->name('course.video');
     Route::get('/profile', [UserController::class, 'edit_profile'])->name('user.profile');
     Route::put('/profile', [UserController::class, 'update_profile'])->name('user.profile.update');
+    Route::get('/ownedCourse', [UserController::class, 'owned_course'])->name('user.course.owned');
 
     // Route::get('/student/purchase', [StudentController::class, 'index'])->name('student.purchases');
     // Route::post('/student/purchase/{id}/upload', [StudentController::class, 'uploadPayment'])->name('student.uploadPayment');

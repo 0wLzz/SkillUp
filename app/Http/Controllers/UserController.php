@@ -20,6 +20,17 @@ class UserController extends Controller
         return view('index', compact(['courses', 'tutors']));
     }
 
+    public function owned_course()
+    {
+        $user = Auth::guard('web')->user();
+        $ownedCourse = CoursePurchase::with('course')
+            ->where('user_id', $user->id)
+            ->get()
+            ->pluck('course');
+
+        return view('users.ownedCourse', compact('ownedCourse'));
+    }
+
     public function subscribe()
     {
         return redirect()->back()->with('success', 'You have successfully Subscribed!');
@@ -76,11 +87,8 @@ class UserController extends Controller
     public function edit_profile()
     {
         $user = Auth::guard('web')->user();
-        $ownedCourse = CoursePurchase::with('course')
-            ->where('user_id', $user->id)
-            ->get()
-            ->pluck('course');
-        return view('users.editProfile', compact(['user', 'ownedCourse']));
+
+        return view('users.editProfile', compact('user'));
     }
 
     public function update_profile(Request $request)
