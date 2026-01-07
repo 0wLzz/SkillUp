@@ -1,4 +1,4 @@
-![Skill Up Logo](public\assets\SkillUp.png)
+![Skill Up Logo](public/assets/SkillUp.png)
 
 SkillUp is a web application designed to help users develop soft skills that support their journey toward a successful career. This project was developed as the final assignment for the *Software Engineering* course and demonstrates practical use of a modern PHP framework along with utility-first CSS.
 
