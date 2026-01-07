@@ -3,7 +3,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
@@ -14,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
-
     public function dashboard()
     {
         $totalCourse = Course::all()->count();
@@ -35,7 +33,6 @@ class AdminController extends Controller
     {
         $subscriptions = CoursePurchase::with('user', 'course')->get();
         return view('admin.subscription', compact('subscriptions'));
-        //return view('admin.subscription');
     }
 
     public function tutor()

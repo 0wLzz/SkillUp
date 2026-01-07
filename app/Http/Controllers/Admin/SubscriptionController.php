@@ -11,7 +11,6 @@ class SubscriptionController extends Controller
     public function index()
     {
         $subscriptions = CoursePurchase::with('user', 'course')->get();
-        // ⬇️ Ini penting, agar subscription.blade.php dapat akses $subscriptions
         return view('admin.subscriptions.index', compact('subscriptions'));
     }
 
